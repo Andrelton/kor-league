@@ -11,10 +11,11 @@ class FootballDataClient
   end
 
   def get_german_data
-     euro_data = self.class.get(
-      "/v1/soccerseasons/424/leagueTable",
+     german_data = self.class.get(
+      "/v1/soccerseasons/430/leagueTable",
       headers: @headers
       )
+     return german_data
   end
 
   def key_test

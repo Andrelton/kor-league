@@ -1,6 +1,13 @@
 <% @owners.each do |owner| %>
   <p>
     <%= owner.name %>
+    <% if owner.clubs.any? %>
+      <% owner.clubs.each do |club| %>
+        <p>
+          <%= club.fb_name %>
+        </p>
+      <% end %>
+    <% end %>
   </p>
 <% end %>
 

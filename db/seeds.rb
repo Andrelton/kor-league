@@ -19,4 +19,4 @@
 # Owner.create(name: "Luke")
 
 tester = FootballDataClient.new
-p tester.key_test
+p tester.get_german_data

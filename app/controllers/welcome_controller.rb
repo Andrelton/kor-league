@@ -2,7 +2,14 @@ class WelcomeController < ApplicationController
   def index
     @owners = Owner.all
 
-    @key = FootballDataClient.new.key_test
+    data_client = FootballDataClient.new
+    @key = data_client.key_test
+
     render :index
+  end
+
+  def create_clubs
+    Databaser.new.seed_clubs
+    render
   end
 end
