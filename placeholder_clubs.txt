@@ -1,0 +1,41 @@
+Barcelona
+Real Madrid
+Atletico Madrid
+Villarreal
+Athletic Bilbao
+Celta Vigo
+Sevilla
+Málaga
+Real Sociedad
+Real Betis
+Las Palmas
+Valencia
+Espanyol
+Eibar
+Deportivo La Coruña
+Granada
+Sporting Gijón
+Rayo Vallecano
+Getafe
+Levante
+
+Juventus
+Napoli
+AS Roma
+Inter Milan
+Fiorentina
+Sassuolo
+AC Milan
+Lazio
+Chievo Verona
+Empoli
+Genoa
+Torino
+Atalanta
+Bologna
+Sampdoria
+Palermo
+Udinese
+Carpi
+Frosinone
+Hellas Verona

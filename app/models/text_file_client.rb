@@ -13,4 +13,8 @@ class TextFileClient
     return owner_clubs
   end
 
+  def get_placeholder_clubs
+    thing = CSV.read("placeholder_clubs.txt").flatten
+  end
+
 end

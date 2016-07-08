@@ -1,7 +1,7 @@
 class Databaser
 
   def create_club(attributes)
-    club = Club.create(attributes)
+    club = Club.new(attributes)
     # assign pretty name to club
     club.name = PrettyClubName.find_by(fd_id: club.fd_id).name
     club.save
@@ -31,7 +31,10 @@ class Databaser
     end
 
     # Create placeholder clubs for Spanish and Italian Leagues
-
+    placeholder_clubs = TextFileClient.new.get_placeholder_clubs
+    placeholder_clubs.each do |club_name|
+      Club.create(name: club_name)
+    end
   end
 
   def seed_pretty_club_names
@@ -55,7 +58,7 @@ class Databaser
       club_names.each do |club_name|
         club = Club.find_by(name: club_name)
         if club
-          owner.clubs << club unless owner.clubs.includes(club)
+          owner.clubs << club unless owner.clubs.include?(club)
         end
       end
     end
