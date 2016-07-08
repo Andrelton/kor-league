@@ -10,7 +10,7 @@ class FootballDataClient
     @headers = { "X-Auth-Token" => @api_key}
   end
 
-  def test
+  def get_german_data
      euro_data = self.class.get(
       "/v1/soccerseasons/424/leagueTable",
       headers: @headers
