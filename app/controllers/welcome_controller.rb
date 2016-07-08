@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    render plain: "Hello."
+    @owners = Owner.all
+    render :index
   end
 end
