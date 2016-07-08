@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708153603) do
+ActiveRecord::Schema.define(version: 20160708215050) do
 
   create_table "clubs", force: :cascade do |t|
     t.integer  "country_id"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 20160708153603) do
   add_index "owner_clubs", ["owner_id"], name: "index_owner_clubs_on_owner_id"
 
   create_table "owners", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pretty_club_names", force: :cascade do |t|
+    t.integer  "fd_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,39 @@
+57,Arsenal
+1044,AFC Bournemouth
+328,Burnley
+61,Chelsea
+354,Crystal Palace
+62,Everton
+322,Hull City
+338,Leicester City
+64,Liverpool
+65,Manchester City
+66,Manchester United
+343,Middlesbrough
+340,Southampton
+70,Stoke City
+71,Sunderland
+72,Swansea City
+73,Tottenham
+346,Watford
+74,West Bromwich Albion
+563,West Ham United
+
+1,FC Cologne
+4,Borussia Dortmund
+19,Eintracht Frankfurt
+17,SC Freiburg
+7,Hamburg SV
+9,Hertha Berlin
+3,Bayer Leverkusen
+5,Bayern Munich
+6,Schalke 04
+12,Werder Bremen
+11,VfL Wolfsburg
+18,B. Monchengladbach
+15,Mainz
+55,SV Darmstadt 98
+16,FC Augsburg
+31,FC Ingolstadt 04
+2,TSG Hoffenheim
+721,RB Leipzig

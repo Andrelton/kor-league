@@ -10,6 +10,10 @@ class FootballDataClient
     @headers = { "X-Auth-Token" => @api_key}
   end
 
+  def key_test
+    ENV['FOOTBALL_DATA_API_KEY']
+  end
+
   def get_all_teams
     countries = {
       england: 426,
@@ -29,7 +33,5 @@ class FootballDataClient
     return team_data
   end
 
-  def key_test
-    ENV['FOOTBALL_DATA_API_KEY']
-  end
+
 end

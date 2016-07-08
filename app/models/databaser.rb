@@ -1,7 +1,10 @@
 class Databaser
 
   def create_club(attributes)
-    Club.create(attributes)
+    club = Club.create(attributes)
+    # assign pretty name to club
+    club.name = PrettyClubName.find_by(fd_id: club.fd_id).name
+    club.save
     # p attributes
   end
 
@@ -25,6 +28,20 @@ class Databaser
         played: team["playedGames"]
       }
       create_club(club_attributes)
+    end
+  end
+
+  def seed_pretty_club_names
+    # retrieve club_name_conversions.txt with lines as nested arrays
+    pretty_club_names = TextFileClient.new.get_club_name_conversions
+    pretty_club_names.each do |club|
+      # skip blank lines in text/csv file
+      if club.any?
+        PrettyClubName.create({
+          fd_id: club[0],
+          name: club[1]
+        })
+      end
     end
   end
 
