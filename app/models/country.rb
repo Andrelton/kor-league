@@ -1,4 +1,4 @@
-class League < ActiveRecord::Base
+class Country < ActiveRecord::Base
   has_many :clubs
 
   # add validations
