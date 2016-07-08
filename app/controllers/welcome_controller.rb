@@ -10,6 +10,6 @@ class WelcomeController < ApplicationController
 
   def create_clubs
     Databaser.new.seed_clubs
-    render
+    # Owner.first.clubs << Club.first
   end
 end

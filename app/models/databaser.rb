@@ -1,8 +1,8 @@
 class Databaser
 
   def create_club(attributes)
-    # Club.create(attributes)
-    p attributes
+    Club.create(attributes)
+    # p attributes
   end
 
   def get_club_fd_id(links)
@@ -12,10 +12,9 @@ class Databaser
 
   def seed_clubs
     fb_data_client = FootballDataClient.new
+    all_teams = fb_data_client.get_all_teams
 
-    german_data = fb_data_client.get_german_data
-
-    german_data["standing"].each do |team|
+    all_teams.each do |team|
       club_attributes = {
         # ! country: ,
         fd_id: get_club_fd_id(team["_links"]),
@@ -27,5 +26,9 @@ class Databaser
       }
       create_club(club_attributes)
     end
+  end
+
+  def assign_clubs_to_owners
+
   end
 end

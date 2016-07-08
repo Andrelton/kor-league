@@ -10,12 +10,23 @@ class FootballDataClient
     @headers = { "X-Auth-Token" => @api_key}
   end
 
-  def get_german_data
-     german_data = self.class.get(
-      "/v1/soccerseasons/430/leagueTable",
+  def get_all_teams
+    countries = {
+      england: 426,
+      germany: 430
+    }
+
+    team_data = []
+
+    countries.each do |_, country_number|
+     country_teams = self.class.get(
+      "/v1/soccerseasons/#{country_number}/leagueTable",
       headers: @headers
       )
-     return german_data
+     team_data += country_teams["standing"]
+    end
+
+    return team_data
   end
 
   def key_test

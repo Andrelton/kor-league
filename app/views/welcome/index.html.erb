@@ -3,8 +3,8 @@
     <%= owner.name %>
     <% if owner.clubs.any? %>
       <% owner.clubs.each do |club| %>
-        <p>
-          <%= club.fb_name %>
+        <p class="indent">
+          <%= club.fd_name %>
         </p>
       <% end %>
     <% end %>
