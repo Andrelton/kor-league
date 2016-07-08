@@ -13,6 +13,8 @@ class WelcomeController < ApplicationController
 
     databaser.seed_pretty_club_names
     databaser.seed_clubs
+
+    databaser.assign_clubs_to_owners
     # Owner.first.clubs << Club.first
   end
 end

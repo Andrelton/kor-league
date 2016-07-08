@@ -29,6 +29,9 @@ class Databaser
       }
       create_club(club_attributes)
     end
+
+    # Create placeholder clubs for Spanish and Italian Leagues
+
   end
 
   def seed_pretty_club_names
@@ -46,6 +49,15 @@ class Databaser
   end
 
   def assign_clubs_to_owners
-
+    owner_clubs = TextFileClient.new.get_club_assignments
+    owner_clubs.each do |owner_name, club_names|
+      owner = Owner.find_by(name: owner_name)
+      club_names.each do |club_name|
+        club = Club.find_by(name: club_name)
+        if club
+          owner.clubs << club unless owner.clubs.includes(club)
+        end
+      end
+    end
   end
 end

@@ -5,7 +5,7 @@ Matt,Real Madrid,Fiorentina,B. Monchengladbach,Southampton
 Dean,Manchester City,Bayer Leverkusen,Sevilla,Genoa
 Rik,Manchester United,AC Milan,Valencia,Werder Bremen
 Eric,Roma,Leicester City,Athletic Bilbao,TSG Hoffenheim
-John K,Arsenal,Inter Milan,Celta Vigo,Hertha Berlin
+John K.,Arsenal,Inter Milan,Celta Vigo,Hertha Berlin
 Brad,Chelsea,Atletico Madrid,Sassuolo,RB Leipzig
-Johnny Z,Napoli,Liverpool,Mainz,Malaga
-Luke,B. Dortmund,Tottenham,Real Sociedad,Chievo
+John Z.,Napoli,Liverpool,Mainz,Malaga
+Luke,Borussia Dortmund,Tottenham,Real Sociedad,Chievo
