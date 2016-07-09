@@ -17,3 +17,5 @@ Owner.create(name: "Mark")
 Owner.create(name: "John Z.")
 Owner.create(name: "Matt")
 Owner.create(name: "Luke")
+
+Country.create()

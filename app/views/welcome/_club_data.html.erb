@@ -1,0 +1,21 @@
+<div class="club-section">
+  <div class="club-crest">
+    <img class="club-crest" src="<%= club.crest_url %>" alt="<%= club.name %> crest">
+  </div>
+
+  <div class="club-data-area club-info">
+    <div class="club-data name light-grey">
+      <%= club.name %>
+    </div>
+    <div class="club-data light-grey">
+      Schedule info here.
+    </div>
+  </div>
+
+  <div class="club-data-area club-points">
+      <span class="sub-points"><%= club.points || 0 %></span>
+      <br>
+      <span class="tiny-text">PTS</span>
+  </div>
+
+</div>

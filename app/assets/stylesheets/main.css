@@ -1,0 +1,137 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  background-image: url("/assets/mountains.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+div.main-wrapper {
+  margin: 0;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 0.9em;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  height: auto;
+  min-height: 100%;
+  width: 60%;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 6em;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 2em;
+}
+
+img.club-crest {
+  height: 2.5em;
+}
+
+img.profile {
+  height: 6em;
+}
+
+div {
+  /*border: 1px dotted #DE1E7E;*/
+}
+
+div.owner-section {
+  margin-bottom: 0.5em;
+  background-color: #B3B3B3;
+}
+
+div.left-wrapper {
+  text-align: center;
+  padding: 0.5em;
+  float: left;
+  width: 20%;
+}
+
+div.profile-pic {
+  margin-top: 0.5em;
+}
+
+div.owner-name {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+div.point-data {
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+div.club-section {
+  margin: 0.2em;
+}
+
+div.club-area {
+  padding-left: 0.5em;
+  display: inline-block;
+  background-color: #FFFFFF;
+  width: 70%;
+}
+
+div.club-crest {
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+}
+
+div.club-data-area {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  height: 3em;
+}
+
+div.club-info {
+    width: 60%;
+}
+
+div.club-data {
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+div.light-grey {
+  background-color: #E6E6E6;
+}
+
+div.name {
+  font-weight: bold;
+}
+
+div.club-points {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 18%;
+}
+
+span.sub-points {
+  line-height: 80%;
+  font-size: 2em;
+}
+
+span.tiny-text {
+  font-size: 0.8em;
+}
+
+p.footer {
+  text-align: center;
+}

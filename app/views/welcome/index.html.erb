@@ -1,16 +1,35 @@
 <% @owners.each do |owner| %>
-  <p>
-    <%= owner.name %>
+  <div class="owner-section">
+
+    <div class="left-wrapper">
+      <div class="owner-name">
+        <%= owner.name %>
+      </div>
+      <div class="point-data">
+        <%= owner.points %> POINTS
+      </div>
+      <div class="profile-pic">
+        <img class="profile" src="/assets/leo.jpg">
+      </div>
+    </div>
+
     <% if owner.clubs.any? %>
-      <% owner.clubs.each do |club| %>
-        <p class="indent">
-          <%= club.name %>
-        </p>
-      <% end %>
+
+      <div class="club-area">
+        <% owner.clubs.each do |club| %>
+
+            <%= render partial: "club_data", locals: { club: club } %>
+
+        <% end %>
+      </div>
+
     <% end %>
-  </p>
+
+  </div>
 <% end %>
 
-<p>
-  <%= @key %>
+
+<p class="footer">
+  ..........
 </p>
+
