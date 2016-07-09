@@ -1,8 +1,8 @@
 class CreateFixtures < ActiveRecord::Migration
   def change
     create_table :fixtures do |t|
-      t.integer :home_team_id
-      t.integer :away_team_id
+      t.integer :home_club_id
+      t.integer :away_club_id
 
       t.datetime :date
 

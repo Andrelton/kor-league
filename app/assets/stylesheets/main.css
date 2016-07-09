@@ -47,6 +47,12 @@ div {
   /*border: 1px dotted #DE1E7E;*/
 }
 
+div.headline {
+  margin-left: 3em;
+  margin-right: 3em;
+  text-align: center;
+}
+
 div.owner-section {
   margin-bottom: 0.5em;
   background-color: #B3B3B3;
@@ -131,6 +137,10 @@ span.sub-points {
 
 span.tiny-text {
   font-size: 0.8em;
+}
+
+span.opponent {
+  font-style: italic;
 }
 
 p.footer {

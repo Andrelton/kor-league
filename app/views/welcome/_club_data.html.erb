@@ -8,7 +8,17 @@
       <%= club.name %>
     </div>
     <div class="club-data">
-      Schedule info here, good stuff.
+
+      <% if club.next_fixture %>
+
+        * <%= club.next_fixture[:date].strftime('%a, %b %e') %> v.
+        <% opposing_club = club.next_fixture[:opponent] %>
+        <%= opposing_club.name %>
+        <span class="opponent"><%= ("(" + opposing_club.owners.first.name + ")") if opposing_club.owners.any? %></span>
+      <% else %>
+        No fixture data yet.
+      <% end %>
+
     </div>
   </div>
 

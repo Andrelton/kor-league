@@ -71,8 +71,8 @@ class Databaser
 
     fixtures.each do |fixture|
       fixture_attributes = {
-        home_team_id: get_club_fd_id(fixture["_links"]["homeTeam"]["href"]),
-        away_team_id: get_club_fd_id(fixture["_links"]["awayTeam"]["href"]),
+        home_club_id: get_club_fd_id(fixture["_links"]["homeTeam"]["href"]),
+        away_club_id: get_club_fd_id(fixture["_links"]["awayTeam"]["href"]),
         date: fixture["date"]
       }
       create_fixture(fixture_attributes)

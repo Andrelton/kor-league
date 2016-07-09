@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160709144437) do
   end
 
   create_table "fixtures", force: :cascade do |t|
-    t.integer  "home_team_id"
-    t.integer  "away_team_id"
+    t.integer  "home_club_id"
+    t.integer  "away_club_id"
     t.datetime "date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
