@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160708215050) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clubs", force: :cascade do |t|
     t.integer  "country_id"
     t.integer  "fd_id"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160708215050) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "clubs", ["country_id"], name: "index_clubs_on_country_id"
+  add_index "clubs", ["country_id"], name: "index_clubs_on_country_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.integer  "fd_id"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160708215050) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "owner_clubs", ["club_id"], name: "index_owner_clubs_on_club_id"
-  add_index "owner_clubs", ["owner_id"], name: "index_owner_clubs_on_owner_id"
+  add_index "owner_clubs", ["club_id"], name: "index_owner_clubs_on_club_id", using: :btree
+  add_index "owner_clubs", ["owner_id"], name: "index_owner_clubs_on_owner_id", using: :btree
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
@@ -58,4 +61,7 @@ ActiveRecord::Schema.define(version: 20160708215050) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "clubs", "countries"
+  add_foreign_key "owner_clubs", "clubs"
+  add_foreign_key "owner_clubs", "owners"
 end
