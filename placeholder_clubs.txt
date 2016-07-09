@@ -1,15 +1,15 @@
-Barcelona
-Real Madrid
-Atletico Madrid
-Villarreal
-Athletic Bilbao
-Celta Vigo
-Sevilla
-Málaga
-Real Sociedad
-Real Betis
+Barcelona,https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg
+Real Madrid,https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg
+Atletico Madrid,https://upload.wikimedia.org/wikipedia/en/c/c1/Atletico_Madrid_logo.svg
+Villarreal,https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg
+Athletic Bilbao,https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg
+Celta Vigo,https://upload.wikimedia.org/wikipedia/en/1/12/RC_Celta_de_Vigo_logo.svg
+Sevilla,https://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png
+Málaga,https://upload.wikimedia.org/wikipedia/en/c/c3/M%C3%A1laga_CF.png
+Real Sociedad,https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg
+Real Betis,https://upload.wikimedia.org/wikipedia/en/1/13/Real_betis_logo.svg
 Las Palmas
-Valencia
+Valencia,https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg
 Espanyol
 Eibar
 Deportivo La Coruña
@@ -18,22 +18,21 @@ Sporting Gijón
 Rayo Vallecano
 Getafe
 Levante
-
-Juventus
-Napoli
-AS Roma
-Inter Milan
-Fiorentina
-Sassuolo
-AC Milan
-Lazio
-Chievo Verona
+Juventus,https://upload.wikimedia.org/wikipedia/en/d/d2/Juventus_Turin.svg
+Napoli,https://upload.wikimedia.org/wikipedia/commons/2/28/S.S.C._Napoli_logo.svg
+AS Roma,https://upload.wikimedia.org/wikipedia/en/5/52/AS_Roma_logo_%282013%29.svg
+Inter Milan,https://upload.wikimedia.org/wikipedia/en/2/23/Inter_Milan.png
+Fiorentina,https://upload.wikimedia.org/wikipedia/en/b/ba/ACF_Fiorentina_2.svg
+Sassuolo,https://upload.wikimedia.org/wikipedia/en/1/1c/US_Sassuolo_Calcio_logo.svg
+AC Milan,https://upload.wikimedia.org/wikipedia/en/d/db/AC_Milan.svg
+Lazio,https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg
+Chievo Verona,https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png
 Empoli
-Genoa
+Genoa,https://upload.wikimedia.org/wikipedia/en/4/4e/Genoa_cfc.png
 Torino
 Atalanta
 Bologna
-Sampdoria
+Sampdoria,https://upload.wikimedia.org/wikipedia/en/f/f7/Sampdoria_badge.png
 Palermo
 Udinese
 Carpi

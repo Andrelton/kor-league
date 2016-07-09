@@ -70,6 +70,4 @@ ActiveRecord::Schema.define(version: 20160709144437) do
   end
 
   add_foreign_key "clubs", "countries"
-  add_foreign_key "owner_clubs", "clubs"
-  add_foreign_key "owner_clubs", "owners"
 end
