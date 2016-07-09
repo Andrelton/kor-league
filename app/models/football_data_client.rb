@@ -5,6 +5,11 @@ class FootballDataClient
   include HTTParty
   base_uri "http://api.football-data.org"
 
+  COUNTRIES = {
+      england: 426,
+      germany: 430
+    }
+
   def initialize
     @api_key = ENV['FOOTBALL_DATA_API_KEY']
     @headers = { "X-Auth-Token" => @api_key}
@@ -15,14 +20,9 @@ class FootballDataClient
   end
 
   def get_all_teams
-    countries = {
-      england: 426,
-      germany: 430
-    }
-
     team_data = []
 
-    countries.each do |_, country_number|
+    COUNTRIES.each do |_, country_number|
      country_teams = self.class.get(
       "/v1/soccerseasons/#{country_number}/leagueTable",
       headers: @headers
@@ -33,5 +33,18 @@ class FootballDataClient
     return team_data
   end
 
+  def get_all_fixtures
+    fixtures_data = []
+
+    COUNTRIES.each do |_, country_number|
+     country_fixtures = self.class.get(
+      "/v1/soccerseasons/#{country_number}/fixtures",
+      headers: @headers
+      )
+     fixtures_data += country_fixtures["fixtures"]
+    end
+
+    return fixtures_data
+  end
 
 end

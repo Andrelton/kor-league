@@ -1,26 +1,23 @@
 class Databaser
-
-  def create_club(attributes)
-    club = Club.new(attributes)
-    # assign pretty name to club
-    club.name = PrettyClubName.find_by(fd_id: club.fd_id).name
-    club.save
-    # p attributes
-  end
-
-  def get_club_fd_id(links)
-    url = links["team"]["href"]
+  def get_club_fd_id(url)
     url.split("/").last
   end
 
+  def create_club(attributes)
+    club = Club.new(attributes)
+    # assign pretty name to club as "name"
+    club.name = PrettyClubName.find_by(fd_id: club.fd_id).name
+    club.save
+  end
+
   def seed_clubs
-    fb_data_client = FootballDataClient.new
-    all_teams = fb_data_client.get_all_teams
+    fd_client = FootballDataClient.new
+    all_teams = fd_client.get_all_teams
 
     all_teams.each do |team|
       club_attributes = {
         # ! country: ,
-        fd_id: get_club_fd_id(team["_links"]),
+        fd_id: get_club_fd_id(team["_links"]["team"]["href"]),
         fd_name: team["teamName"],
         name: "TEST",
         crest_url: team["crestURI"],
@@ -61,6 +58,24 @@ class Databaser
           owner.clubs << club unless owner.clubs.include?(club)
         end
       end
+    end
+  end
+
+  def create_fixture(attributes)
+    Fixture.create(attributes)
+  end
+
+  def seed_fixtures
+    fd_client = FootballDataClient.new
+    fixtures = fd_client.get_all_fixtures
+
+    fixtures.each do |fixture|
+      fixture_attributes = {
+        home_team_id: get_club_fd_id(fixture["_links"]["homeTeam"]["href"]),
+        away_team_id: get_club_fd_id(fixture["_links"]["awayTeam"]["href"]),
+        date: fixture["date"]
+      }
+      create_fixture(fixture_attributes)
     end
   end
 end

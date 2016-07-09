@@ -9,12 +9,11 @@ class WelcomeController < ApplicationController
   end
 
   def create_club_data
-    databaser = Databaser.new
+    # databaser = Databaser.new
 
-    databaser.seed_pretty_club_names
-    databaser.seed_clubs
-
-    databaser.assign_clubs_to_owners
-    # Owner.first.clubs << Club.first
+    # databaser.seed_pretty_club_names
+    # databaser.seed_clubs
+    # databaser.assign_clubs_to_owners
+    # databaser.seed_fixtures
   end
 end
