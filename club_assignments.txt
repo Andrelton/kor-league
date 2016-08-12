@@ -1,5 +1,5 @@
 Nick,Bayern Munich,Villarreal,Lazio,Stoke City
-Jarred,Juventus,VfL Wolfsburg,West Ham United,Real Betis
+Jarred,Juventus,VfL Wolfsburg,West Ham,Real Betis
 Mark,Barcelona,Sampdoria,Schalke 04,Everton
 Matt,Real Madrid,Fiorentina,B. Monchengladbach,Southampton
 Dean,Manchester City,Bayer Leverkusen,Sevilla,Genoa

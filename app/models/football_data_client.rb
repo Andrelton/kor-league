@@ -7,7 +7,9 @@ class FootballDataClient
 
   COUNTRIES = {
       england: 426,
-      germany: 430
+      germany: 430,
+      spain: 436,
+      italy: 438
     }
 
   def initialize

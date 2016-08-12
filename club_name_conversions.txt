@@ -17,7 +17,7 @@
 73,Tottenham
 346,Watford
 74,West Bromwich Albion
-563,West Ham United
+563,West Ham
 
 1,FC Cologne
 4,Borussia Dortmund
@@ -37,3 +37,45 @@
 31,FC Ingolstadt 04
 2,TSG Hoffenheim
 721,RB Leipzig
+
+263,Alavés
+77,Athletic Bilbao
+78,Atletico Madrid
+81,Barcelona
+558,Celta Vigo
+560,Deportivo La Coruña
+278,Eibar
+80,Espanyol
+83,Granada
+275,Las Palmas
+745,Leganes
+84,Málaga
+79,Osasuna
+90,Real Betis
+86,Real Madrid
+92,Real Sociedad
+559,Sevilla
+96,Sporting Gijón
+95,Valencia
+94,Villarreal
+
+102,Atalanta
+103,Bologna
+104,Cagliari
+106,Chievo Verona
+472,Crotone
+445,Empoli
+99,Fiorentina
+107,Genoa
+108,Inter Milan
+109,Juventus
+110,Lazio
+98,AC Milan
+113,Napoli
+114,Palermo
+585,Pescara
+100,AS Roma
+584,Sampdoria
+471,Sassuolo
+586,Torino
+115,Udinese

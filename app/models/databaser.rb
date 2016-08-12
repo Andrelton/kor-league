@@ -28,10 +28,10 @@ class Databaser
     end
 
     # Create placeholder clubs for Spanish and Italian Leagues
-    placeholder_clubs = TextFileClient.new.get_placeholder_clubs
-    placeholder_clubs.each do |club_info|
-      Club.create(name: club_info[0], crest_url: club_info[1])
-    end
+    # placeholder_clubs = TextFileClient.new.get_placeholder_clubs
+    # placeholder_clubs.each do |club_info|
+    #   Club.create(name: club_info[0], crest_url: club_info[1])
+    # end
   end
 
   def seed_pretty_club_names
