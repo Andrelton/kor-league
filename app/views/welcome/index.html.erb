@@ -10,8 +10,8 @@
         <%= owner.points %> POINTS
       </div>
       <div class="profile-pic">
-        <% if owner.name == "Brad" %>
-          <img class="profile" src="/assets/brad.jpg">
+        <% if owner.avatar %>
+          <img class="profile" src="<%= owner.avatar %>">
         <% else %>
           <img class="profile" src="/assets/leo.jpg">
         <% end %>

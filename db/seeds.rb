@@ -6,10 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Owner.create(name: "Brad")
-Owner.create(name: "Dean")
+# AVATARS
+# https://s10.postimg.io/6d5s00l89/brad.jpg
+# https://s3.postimg.io/wrq5pieoj/dean.jpg
+# https://s9.postimg.org/f60pqxmun/eric.jpg
+
+
+Owner.create(name: "Brad", avatar: "https://s10.postimg.io/6d5s00l89/brad.jpg")
+Owner.create(name: "Dean", avatar: "https://s3.postimg.io/wrq5pieoj/dean.jpg")
 Owner.create(name: "Rik")
-Owner.create(name: "Eric")
+Owner.create(name: "Eric", avatar: "https://s9.postimg.org/f60pqxmun/eric.jpg")
 Owner.create(name: "Nick")
 Owner.create(name: "Jarred")
 Owner.create(name: "John K.")
