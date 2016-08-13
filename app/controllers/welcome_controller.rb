@@ -1,5 +1,10 @@
 class WelcomeController < ApplicationController
   def index
+    # Horrible work-around for new Man City crest
+    man_city = Club.where(fd_id: 65).first
+    man_city.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
+    man_city.save
+
     @owners = Owner.all
 
     data_client = FootballDataClient.new

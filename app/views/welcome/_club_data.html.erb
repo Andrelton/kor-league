@@ -9,10 +9,15 @@
     </div>
     <div class="club-data">
 
-      <% if club.next_fixture %>
-
-        <%= club.next_fixture[:date].strftime('%a, %b %e') %> v.
-        <% opposing_club = club.next_fixture[:opponent] %>
+      <%
+      if club.next_fixture
+        next_fixture = club.next_fixture[:date]
+      %>
+        <%= next_fixture.strftime('%a, %b %e') %>
+        <span class="next-fixture-date">
+          <%= next_fixture %>
+        </span>
+        v. <% opposing_club = club.next_fixture[:opponent] %>
         <%= opposing_club.name %>
         <span class="opponent"><%= ("(" + opposing_club.owners.first.name + ")") if opposing_club.owners.any? %></span>
       <% else %>

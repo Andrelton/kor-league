@@ -1,5 +1,10 @@
 
-<% @owners.each do |owner| %>
+<%
+# apparently, 'reverse!' benchmarks as the fastest method here
+owners_ranked_by_points = @owners.sort_by { |owner| owner.points }.reverse!
+owners_ranked_by_points.each do |owner|
+
+%>
   <div class="owner-section">
 
     <div class="left-wrapper">
@@ -21,7 +26,12 @@
     <% if owner.clubs.any? %>
 
       <div class="club-area">
-        <% owner.clubs.each do |club| %>
+        <%
+
+        clubs_ranked_by_points = owner.clubs.sort_by { |club| club.points }.reverse!
+        clubs_ranked_by_points.each do |club|
+
+        %>
 
             <%= render partial: "club_data", locals: { club: club } %>
 

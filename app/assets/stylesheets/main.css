@@ -146,3 +146,7 @@ span.opponent {
 p.footer {
   text-align: center;
 }
+
+span.next-fixture-date {
+  color: green;
+}
