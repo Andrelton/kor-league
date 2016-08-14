@@ -130,6 +130,10 @@ div.club-points {
   width: 12%;
 }
 
+div.console {
+  margin-left: 3em;
+}
+
 span.sub-points {
   line-height: 80%;
   font-size: 2em;
@@ -150,3 +154,18 @@ p.footer {
 span.next-fixture-date {
   display: none;
 }
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #2952A3;
+}
+
+

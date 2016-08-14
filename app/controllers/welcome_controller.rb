@@ -26,4 +26,8 @@ class WelcomeController < ApplicationController
     # databaser.assign_clubs_to_owners
     # databaser.seed_fixtures
   end
+
+  def eric_console
+    render :eric_console
+  end
 end

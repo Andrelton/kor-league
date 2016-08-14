@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'update/points'
+
   root 'welcome#index'
 
   get '/owners/:id' => 'welcome#owners'
+  get '/eric_console' => 'welcome#eric_console'
+
+  post '/update/points' => 'update#points'
   # resources :users
 
   # get '/signup' => 'users#new'
