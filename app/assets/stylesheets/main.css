@@ -148,5 +148,5 @@ p.footer {
 }
 
 span.next-fixture-date {
-  color: green;
+  display: none;
 }

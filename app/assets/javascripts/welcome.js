@@ -1,3 +1,4 @@
-$(document).ready(function() {
-  console.log("You done did it.")
-});
+// $(document).ready(function() {
+//   var fixtureSpans = $('span.next-fixture-date');
+//   console.log(fixtureSpans[0]);
+// });
