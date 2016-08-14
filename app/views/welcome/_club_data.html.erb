@@ -14,12 +14,11 @@
         next_fixture = club.next_fixture[:date]
       %>
         <%= next_fixture.strftime('%a, %b %e') %>
-        <span class="next-fixture-date">
-          <%= next_fixture %>
-        </span>
+        <!-- Epoch time in milliseconds-->
+        <span class="next-fixture-date"><%= next_fixture.to_i * 1000 %></span>
         v. <% opposing_club = club.next_fixture[:opponent] %>
         <%= opposing_club.name %>
-        <span class="opponent"><%= ("(" + opposing_club.owners.first.name + ")") if opposing_club.owners.any? %></span>
+        <span class="opponent"><%= ("*" + opposing_club.owners.first.name + "*") if opposing_club.owners.any? %></span>
       <% else %>
         No fixture data yet.
       <% end %>
