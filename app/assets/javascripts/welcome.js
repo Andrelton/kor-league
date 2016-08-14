@@ -1,10 +1,8 @@
-$(document).ready(function() {
+var main = function() {
   var fixtureSpans = $('span.next-fixture-date');
   fixtureSpans.each(function() {
     var element = $(this);
-
     var dateObject = new Date(parseInt(element.text()));
-    console.log(element.text());
 
     var hours = dateObject.getHours();
     var minutes = dateObject.getMinutes();
@@ -19,11 +17,7 @@ $(document).ready(function() {
       hours = hours -12
     }
 
-    console.log(dateObject);
-
-    element.text("(" + hours + ":" + minutes + period + ")")
-
-    // console.log(element.text());
+    element.text("(" + hours + ":" + minutes + period + ")");
 
     // moment.js ...which isn't working on mobile/Safari
     // var momentObject = moment(new Date(element.text()));
@@ -31,5 +25,8 @@ $(document).ready(function() {
     // element.text("(" + newText + ")");
 
     element.show();
-  })
-});
+  });
+};
+
+$(document).ready(main);
+$(document).on('turbolinks:load', main);
