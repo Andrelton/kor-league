@@ -1,4 +1,4 @@
-var main = function() {
+var formatMatchTimes = function() {
   var fixtureSpans = $('span.next-fixture-date');
   fixtureSpans.each(function() {
     var element = $(this);
@@ -28,5 +28,27 @@ var main = function() {
   });
 };
 
-$(document).ready(main);
-$(document).on('turbolinks:load', main);
+var toggleAvatarForm = function() {
+  $('div.change-avatar').on('click', 'button', function() {
+    $('div.change-avatar-form').toggle();
+  });
+};
+
+var disableLinks = function() {
+  if (window.location.pathname !== "/") {
+    $('div.owner-name a').attr('href', '/');
+  };
+};
+
+// $(document).ready(main);
+
+$(document).ready(function() {
+  formatMatchTimes();
+  toggleAvatarForm();
+  disableLinks();
+});
+
+
+// I frankly don't even know which of these is supposed to work.
+// $(document).on('page:load', main);
+// $(document).on('turbolinks:load', main);

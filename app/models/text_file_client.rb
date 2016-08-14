@@ -17,4 +17,13 @@ class TextFileClient
     thing = CSV.read("placeholder_clubs.txt")
   end
 
+  def update_avatar_list
+    owners = Owner.all
+    File.open("avatar_list.txt", "w") do |file|
+      owners.each do |owner|
+        file.puts "#{owner.name},#{owner.avatar}"
+      end
+    end
+  end
+
 end

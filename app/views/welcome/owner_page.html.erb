@@ -1,1 +1,25 @@
-<%= render partial: "owner_data", locals: { owner: @owner } %>
+<div>
+  <%= render partial: "owner_data", locals: { owner: @owner } %>
+</div>
+
+<div class="console change-avatar">
+  <button class="change-avatar">Change Avatar</button>
+  <div class="change-avatar-form">
+    <p>
+      New Avatar URL:
+    </p>
+    <form method="POST" action="/update/avatar/<%= @owner.id %>">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="text" name="image_url">
+      <input type="submit" value="Submit">
+    </form>
+
+    <p>
+      <form method="POST" action="/update/avatar/<%= @owner.id %>">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type="hidden" name="restore">
+        <input type="submit" value="Restore to Leo">
+      </form>
+    </p>
+  </div>
+</div>

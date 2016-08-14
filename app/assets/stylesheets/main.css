@@ -41,6 +41,7 @@ img.club-crest {
 
 img.profile {
   height: 7em;
+  max-width: 10em;
 }
 
 div {
@@ -132,7 +133,9 @@ div.club-points {
 
 div.console {
   margin-left: 3em;
+  margin-right: 3em;
 }
+
 
 span.sub-points {
   line-height: 80%;
@@ -166,6 +169,10 @@ a:visited {
 
 a:hover {
   color: #2952A3;
+}
+
+input[type=text] {
+  width: 25em;
 }
 
 

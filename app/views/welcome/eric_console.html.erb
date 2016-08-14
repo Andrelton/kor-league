@@ -2,8 +2,15 @@
   <h3>
     Update Points
   </h3>
-
   <form method="POST" action="/update/points">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="submit" value="Exectue">
+  </form>
+
+  <h3>
+    Save Avatars to File
+  </h3>
+  <form method="POST" action="/update/avatar_list">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     <input type="submit" value="Exectue">
   </form>

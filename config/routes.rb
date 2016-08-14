@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/owners/:id' => 'welcome#owners'
+  get '/owners/:id' => 'welcome#owners', as: 'owner'
   get '/eric_console' => 'welcome#eric_console'
 
   post '/update/points' => 'update#points'
+  post '/update/avatar_list' => 'update#avatar_list'
+  post '/update/avatar/:id' => 'update#avatar'
+
   # resources :users
 
   # get '/signup' => 'users#new'
