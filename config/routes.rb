@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :users
 
-  get '/signup' => 'users#new'
-  post '/users' => 'users#create'
+  get '/owners/:id' => 'welcome#owners'
+  # resources :users
 
-  get 'create_club_data' => 'welcome#create_club_data'
+  # get '/signup' => 'users#new'
+  # post '/users' => 'users#create'
+
+  # get 'create_club_data' => 'welcome#create_club_data'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

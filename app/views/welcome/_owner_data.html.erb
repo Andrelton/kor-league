@@ -1,0 +1,36 @@
+<div class="owner-section">
+
+  <div class="left-wrapper">
+    <div class="owner-name">
+      <%= owner.name %>
+    </div>
+    <div class="point-data">
+      <%= owner.points %> POINTS
+    </div>
+    <div class="profile-pic">
+      <% if owner.avatar %>
+        <img class="profile" src="<%= owner.avatar %>">
+      <% else %>
+        <img class="profile" src="/assets/leo.jpg">
+      <% end %>
+    </div>
+  </div>
+
+  <% if owner.clubs.any? %>
+
+    <div class="club-area">
+      <%
+
+      clubs_ranked_by_points = owner.clubs.sort_by { |club| club.points }.reverse!
+      clubs_ranked_by_points.each do |club|
+
+      %>
+
+          <%= render partial: "club_data", locals: { club: club } %>
+
+      <% end %>
+    </div>
+
+  <% end %>
+
+</div>
