@@ -6,9 +6,19 @@ class ApplicationController < ActionController::Base
 
   def update_owner_ranks
     owners = Owner.all
-    ranked_owners = owners.sort_by { |owner| [owner.points, owner.name] }.reverse!
+    ranked_owners = owners.sort_by { |owner| owner.points }.reverse!
+
+    previous_owner_points = nil
+    previous_owner_rank = nil
+
     ranked_owners.each_with_index do |owner, index|
-      owner.rank = index + 1
+      if owner.points == previous_owner_points
+        owner.rank = previous_owner_rank
+      else
+        previous_owner_points = owner.points
+        previous_owner_rank = index + 1
+        owner_rank = previous_owner_rank
+      end
       owner.save
     end
   end

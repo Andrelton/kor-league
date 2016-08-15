@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @owners = Owner.order(:rank)
+    @owners = Owner.order(:rank, :name)
     render :index
   end
 

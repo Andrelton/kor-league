@@ -21,8 +21,8 @@
     <div class="club-area">
       <%
 
-      clubs_ranked_by_points = owner.clubs.sort_by { |club| club.points }.reverse!
-      clubs_ranked_by_points.each do |club|
+      clubs_ranked_by_next_fixture = owner.clubs.sort_by { |club| club.next_fixture[:date] }
+      clubs_ranked_by_next_fixture.each do |club|
 
       %>
 
