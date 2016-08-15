@@ -5,7 +5,7 @@
       <a href="owners/<%= owner.id %>"><%= owner.name %></a>
     </div>
     <div class="point-data">
-      <%= owner.points %> POINTS
+      <%= owner.points %> POINTS (<%= ordinal_ranking(owner.rank) %>)
     </div>
     <div class="profile-pic">
       <% if owner.avatar %>

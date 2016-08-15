@@ -1,12 +1,6 @@
+<% @owners.each_with_index do |owner, index| %>
 
-<%
-# apparently, 'reverse!' benchmarks as the fastest method here
-  owners_ranked_by_points = @owners.sort_by { |owner| owner.points }.reverse!
-  owners_ranked_by_points.each do |owner|
-
-%>
-
-  <%= render partial: "owner_data", locals: { owner: owner }  %>
+  <%= render partial: "owner_data", locals: { owner: owner, index: index }  %>
 
 <% end %>
 
