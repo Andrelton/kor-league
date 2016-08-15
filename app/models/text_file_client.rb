@@ -26,4 +26,14 @@ class TextFileClient
     end
   end
 
+  def read_avatar_list
+    avatar_list = []
+    File.open("avatar_list.txt", "r") do |file|
+      file.each_line do |line|
+        avatar_list << line
+      end
+    end
+    return avatar_list
+  end
+
 end

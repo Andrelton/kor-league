@@ -1,6 +1,5 @@
 Brad,https://s10.postimg.io/6d5s00l89/brad.jpg
 Dean,https://s3.postimg.io/wrq5pieoj/dean.jpg
-Rik,
 Eric,https://s9.postimg.org/f60pqxmun/eric.jpg
 Nick,
 Jarred,
@@ -9,3 +8,4 @@ Mark,
 John Z.,
 Matt,
 Luke,
+Rik,

@@ -5,7 +5,7 @@ class UpdateController < ApplicationController
 
   def avatar_list
     TextFileClient.new.update_avatar_list
-    redirect_to root_path
+    redirect_to "/eric_console"
   end
 
   def avatar
