@@ -4,4 +4,9 @@ module ApplicationHelper
     ordinal_rank = rank.to_s + (ordinals[rank - 1] || "TH")
     return ordinal_rank
   end
+
+  def goals_month
+    today = DateTime.now
+    if
+  end
 end

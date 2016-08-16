@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get '/eric_console' => 'welcome#eric_console'
 
   post '/update/points' => 'update#points'
-  post '/update/avatar_list' => 'update#avatar_list'
+  post '/update/goals' => 'update#goals'
   post '/update/avatar/:id' => 'update#avatar'
+  post '/update/avatar_list' => 'update#avatar_list'
 
   get '/test' => 'welcome#test'
 

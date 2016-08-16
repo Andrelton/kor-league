@@ -64,6 +64,7 @@ div.left-wrapper {
   padding: 0.5em;
   float: left;
   width: 20%;
+  padding-bottom: 0em;
 }
 
 div.profile-pic {
@@ -78,8 +79,9 @@ div.owner-name {
 
 div.point-data {
   text-align: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  line-height: 120%;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 
 div.club-section {
@@ -162,6 +164,10 @@ span.next-fixture-date {
   display: none;
 }
 
+span.small-type {
+  font-size: 0.9em;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -178,5 +184,6 @@ a:hover {
 input[type=text] {
   width: 25em;
 }
+
 
 

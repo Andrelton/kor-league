@@ -83,13 +83,39 @@ class Databaser
     end
   end
 
-  def add_result(fixture_attributes)
-
-  end
-
   def update_goals_this_month
+    # Retrieves fixtures between the start of the month and today's date
     completed_fixtures_this_month = Fixture.completed_fixtures_this_month
 
-    return completed_fixtures_this_month.count
+    # Hash that will contain {fd_id: (goals scored in this month)}
+    clubs_and_goals_scored = Hash.new(0)
+
+    # Assembles a running total of goals scored this month
+    completed_fixtures_this_month.each do |fixture|
+      clubs_and_goals_scored[fixture.home_club_id] += fixture.home_club_goals
+      clubs_and_goals_scored[fixture.away_club_id] += fixture.away_club_goals
+    end
+
+    # Sets each club's 'goals_this_month' according to hash, above
+    clubs_and_goals_scored.each do |fd_id, goals|
+      club = Club.find_by(fd_id: fd_id)
+      club.goals_this_month = clubs_and_goals_scored[fd_id]
+      club.save
+    end
+
+    return Club.find_by(name: "Liverpool").goals_this_month
+  end
+
+  def update_owner_goals
+    Owner.all.each do |owner|
+      owner_goals_this_month = 0
+      owner.clubs.each do |club|
+        if club.goals_this_month
+          owner_goals_this_month += club.goals_this_month
+        end
+      end
+      owner.goals_this_month = owner_goals_this_month
+      owner.save
+    end
   end
 end

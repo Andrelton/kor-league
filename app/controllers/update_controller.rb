@@ -4,12 +4,12 @@ class UpdateController < ApplicationController
   end
 
   def goals
+    databaser = Databaser.new
 
-  end
+    databaser.update_goals_this_month
+    databaser.update_owner_goals
 
-  def avatar_list
-    TextFileClient.new.update_avatar_list
-    redirect_to "/eric_console"
+    redirect_to root_path
   end
 
   def avatar
@@ -25,5 +25,10 @@ class UpdateController < ApplicationController
     owner.save
 
     redirect_to owner_path(owner_id)
+  end
+
+  def avatar_list
+    TextFileClient.new.update_avatar_list
+    redirect_to "/eric_console"
   end
 end

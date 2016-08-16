@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816184019) do
+ActiveRecord::Schema.define(version: 20160816200350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20160816184019) do
     t.string   "crest_url"
     t.integer  "points"
     t.integer  "played"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "goals_this_month"
   end
 
   add_index "clubs", ["country_id"], name: "index_clubs_on_country_id", using: :btree
@@ -60,10 +61,11 @@ ActiveRecord::Schema.define(version: 20160816184019) do
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "avatar"
     t.integer  "rank"
+    t.integer  "goals_this_month"
   end
 
   create_table "pretty_club_names", force: :cascade do |t|
