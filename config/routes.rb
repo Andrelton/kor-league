@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/update/avatar_list' => 'update#avatar_list'
   post '/update/avatar/:id' => 'update#avatar'
 
+  # testing
+
   # resources :users
 
   # get '/signup' => 'users#new'
