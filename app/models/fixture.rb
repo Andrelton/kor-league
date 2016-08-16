@@ -9,7 +9,7 @@ class Fixture < ActiveRecord::Base
       if fixture.has_two_owners?
         inter_league_fixtures << fixture
       end
-      break if inter_league_fixtures.length == 10
+      break if inter_league_fixtures.length == 15
     end
 
     return inter_league_fixtures
