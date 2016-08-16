@@ -79,9 +79,9 @@ div.owner-name {
 
 div.point-data {
   text-align: center;
-  line-height: 120%;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  line-height: 140%;
+  padding-top: 0.3em;
+  /*padding-bottom: 0.1em;*/
 }
 
 div.club-section {
@@ -156,6 +156,10 @@ span.opponent {
   /*font-style: italic;*/
 }
 
+span.bold {
+  font-weight: bold;
+}
+
 p.footer {
   text-align: center;
 }
@@ -164,8 +168,12 @@ span.next-fixture-date {
   display: none;
 }
 
-span.small-type {
-  font-size: 0.9em;
+span.emoji {
+  vertical-align: -0.1em;
+}
+
+img.emoji {
+  height: 1em;
 }
 
 a {

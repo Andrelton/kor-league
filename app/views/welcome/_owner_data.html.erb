@@ -5,8 +5,17 @@
       <a href="owners/<%= owner.id %>"><%= owner.name %></a>
     </div>
     <div class="point-data">
-      <%= owner.points %> POINTS (<%= ordinal_ranking(owner.rank) %>)<br>
-      <%= owner.goals_this_month %> @ <span class="small-type">AUG/SEP</span>
+      <span class="bold">
+        <%= owner.points %> POINT<%= "S" unless owner.points == 1 %> (<%= ordinal_ranking(owner.rank) %>)<br>
+      </span>
+      <span class="emoji">
+        <img class="emoji" src="/assets/monster.png">
+      </span> &nbsp|&nbsp
+      <%= owner.goals_this_month %>
+      <span class="emoji">
+        <img class="emoji" src="/assets/soccer_ball.png">
+      </span>
+      <%= goals_month %>
     </div>
     <div class="profile-pic">
       <img class="profile" src="<%= owner.avatar || "/assets/leo.jpg" %>">

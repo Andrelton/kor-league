@@ -7,6 +7,7 @@ module ApplicationHelper
 
   def goals_month
     today = DateTime.now
-    if
+    today += 1.month if today < DateTime.parse("2016-09-01")
+    return today.strftime('%^b')
   end
 end
