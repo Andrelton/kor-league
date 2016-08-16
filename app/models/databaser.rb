@@ -75,7 +75,21 @@ class Databaser
         away_club_id: get_club_fd_id(fixture["_links"]["awayTeam"]["href"]),
         date: fixture["date"]
       }
+      if fixture["status"] == "FINISHED"
+        fixture_attributes[:home_club_goals] = fixture["result"]["goalsHomeTeam"]
+        fixture_attributes[:away_club_goals] = fixture["result"]["goalsAwayTeam"]
+      end
       create_fixture(fixture_attributes)
     end
+  end
+
+  def add_result(fixture_attributes)
+
+  end
+
+  def update_goals_this_month
+    completed_fixtures_this_month = Fixture.completed_fixtures_this_month
+
+    return completed_fixtures_this_month.count
   end
 end

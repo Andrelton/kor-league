@@ -14,6 +14,11 @@ class WelcomeController < ApplicationController
     render :fixtures
   end
 
+  def test
+    # FootballDataClient.new.test
+    render :test
+  end
+
   def eric_console
     @avatar_list = TextFileClient.new.read_avatar_list
     render :eric_console

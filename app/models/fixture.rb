@@ -38,4 +38,20 @@ class Fixture < ActiveRecord::Base
     return true
   end
 
+  def self.completed_fixtures_this_month
+    # Starting in October:
+    # start_of_month = DateTime.now.strftime('%Y-%m-01')
+    # start_date = DateTime.parse(start_of_month)
+
+    # Starting in October:
+    # end_of_month = (DateTime.now + 1.month).strftime('%Y-%m-01')
+    # end_date = DateTime.parse(end_of_month)
+
+    start_date = DateTime.parse("2016-08-01")
+    end_date = DateTime.parse("2016-10-01")
+
+    fixtures_this_month = self.where("date > ?", start_date)
+                                              .where("date < ?", DateTime.now)
+  end
+
 end

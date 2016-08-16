@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def update_goals
+
+
+  end
+
 end

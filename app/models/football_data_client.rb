@@ -49,4 +49,14 @@ class FootballDataClient
     return fixtures_data
   end
 
+  def test
+    fixtures_data = self.class.get(
+      "/v1/soccerseasons/426/fixtures",
+      headers: @headers
+      )
+    first_fixture = fixtures_data["fixtures"].first
+    # binding.pry
+    return first_fixture
+  end
+
 end

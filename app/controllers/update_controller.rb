@@ -3,6 +3,10 @@ class UpdateController < ApplicationController
     redirect_to root_path
   end
 
+  def goals
+
+  end
+
   def avatar_list
     TextFileClient.new.update_avatar_list
     redirect_to "/eric_console"

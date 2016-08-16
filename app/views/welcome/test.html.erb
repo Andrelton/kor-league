@@ -1,0 +1,22 @@
+<div class="console">
+  <p>
+    Current time:<br>
+    <%= DateTime.now %>
+  </p>
+  <p>
+    Start of month:<br>
+    <%
+      start_date = DateTime.parse("2016-08-01")
+      end_date = DateTime.parse("2016-10-01")
+    %>
+    <%= start_date %>
+  </p>
+  <p>
+    Start of next month:<br>
+    <%= end_date %>
+  </p>
+  <p>
+    Number of Fixtures this Month:<br>
+    <%= Databaser.new.update_goals_this_month %>
+  </p>
+</div>
