@@ -14,6 +14,10 @@ class WelcomeController < ApplicationController
     render :fixtures
   end
 
+  def sidebets
+    @owners_by_goals = Owner.ranked_by_goals
+  end
+
   def test
     # FootballDataClient.new.test
     render :test

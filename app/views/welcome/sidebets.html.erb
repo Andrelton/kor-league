@@ -1,0 +1,46 @@
+<div class="line">
+  <span class="column-header">
+    SIDE BETS
+  </span>
+</div>
+
+<div class="sidebets-outer">
+
+  <div class="sidebets-inner">
+    <div class="sidebets-column">
+      <img class="medium-image" src="/assets/monster.png">
+      <span class="medium-text">
+        &nbspHEADS
+      </span>
+    </div>
+
+    <div class="sidebets-column">
+
+      <img class="medium-image" src="/assets/soccer_ball.png">
+      <span class="medium-text">
+        &nbspGOALS (<%= goals_month %>)
+      </span>
+
+      <div class="sidebets-owners-wrapper">
+        <% @owners_by_goals.each_with_index do |owner, index| %>
+          <div class="sidebets-owner <%= "light-grey" if index.odd? %>">
+            <div class="sidebets-rank">
+              <%= ordinal_ranking(index + 1) %>
+            </div>
+            <div class="sidebets-name">
+              <%= owner.name %>
+            </div>
+            <div class="sidebets-number">
+              <%= owner.goals_this_month %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- <div class="footer">
+</div> -->

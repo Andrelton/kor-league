@@ -1,0 +1,59 @@
+div.sidebets-outer {
+  text-align: center;
+  margin-top: 1em;
+}
+
+div.sidebets-inner {
+  width: 90%;
+}
+
+div.sidebets-column {
+  display: inline-block;
+  width: 40%;
+}
+
+div.sidebets-owners-wrapper {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-top: 1px dotted #000;
+}
+
+div.sidebets-owner {
+  padding: 0.3em;
+
+  font-weight: bold;
+  text-align: left;
+}
+div.sidebets-rank, div.sidebets-number {
+  display: inline-block;
+    font-size: 1.2em;
+  width: 15%;
+}
+
+div.sidebets-number {
+  color: #FFF;
+  background-color: #404040;
+  text-align: center;
+}
+
+div.sidebets-name {
+  display: inline-block;
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+  width: 65%;
+}
+
+/*div, span {
+  border: 1px dotted red;
+}*/
+
+img.medium-image {
+  height: 2em;
+  vertical-align: -0.3em;
+}
+
+span.medium-text {
+  font-size: 2em;
+  font-weight: bold;
+}

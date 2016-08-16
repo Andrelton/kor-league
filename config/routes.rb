@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/owners/:id' => 'welcome#owners', as: 'owner'
   get '/fixtures' => 'welcome#fixtures'
+  get '/sidebets' => 'welcome#sidebets'
 
   get '/eric_console' => 'welcome#eric_console'
 

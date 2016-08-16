@@ -32,7 +32,7 @@ h2 {
   margin: 0;
   margin-bottom: 1em;
   text-align: center;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 img.club-crest {
@@ -52,6 +52,10 @@ div.headline {
   margin-left: 3em;
   margin-right: 3em;
   text-align: center;
+}
+
+div.header-links {
+  margin-bottom: 1em;
 }
 
 div.owner-section {
@@ -118,6 +122,10 @@ div.club-data {
 }
 
 div.light-grey {
+  background-color: #E6E6E6;
+}
+
+li.light-grey {
   background-color: #E6E6E6;
 }
 
