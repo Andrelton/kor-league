@@ -136,6 +136,10 @@ div.console {
   margin-right: 3em;
 }
 
+div.sub-header {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
 
 span.sub-points {
   line-height: 80%;

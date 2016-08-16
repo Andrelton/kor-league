@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/owners/:id' => 'welcome#owners', as: 'owner'
+  get '/fixtures' => 'welcome#fixtures'
+
   get '/eric_console' => 'welcome#eric_console'
 
   post '/update/points' => 'update#points'

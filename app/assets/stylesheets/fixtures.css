@@ -1,0 +1,71 @@
+/*div.fixtures-main {
+  text-align:;
+}*/
+
+div.fixtures-outer {
+  text-align: center;
+}
+
+span.column-header {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+div.fixtures-club-info {
+  width: 20em;
+  text-align: center;
+  display: inline-block;
+  padding: 0.5em;
+}
+
+div.fixtures-names {
+  display: inline-block;
+  margin-top: 0.5em;
+  vertical-align: top;
+  width: 13em;
+  text-align: center;
+}
+
+div.fixtures-date {
+  display: inline-block;
+  width: 8em;
+  margin-top: 1em;
+  vertical-align: top;
+  text-align: center;
+}
+
+div.footer {
+  height: 6em;
+}
+
+div.line {
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 50%;
+  border-top: 1px dotted #000;
+  text-align: center;
+  /*border-bottom: 1px dotted #000;*/
+}
+
+span.fixtures-owner-name {
+  font-weight: bold;
+}
+
+img.mini-profile {
+  height: 3em;
+  width: 3em;
+}
+
+img.mini-crest {
+  height: 3em;
+  width: 3em;
+}
+
+.gray {
+  background-color: #D3D3D3;
+}
+
+/*div {
+  border: 1px dotted crimson;
+}*/

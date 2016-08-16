@@ -1,3 +1,11 @@
+<div class="line">
+  <a href="/fixtures">
+    <span class="column-header">
+     &#9664 VIEW LEAGUE FIXTURES &#9658
+    </h3>
+  </a>
+</div>
+
 <% @owners.each_with_index do |owner, index| %>
 
   <%= render partial: "owner_data", locals: { owner: owner, index: index }  %>
