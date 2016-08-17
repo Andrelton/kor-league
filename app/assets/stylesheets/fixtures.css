@@ -16,10 +16,12 @@ span.column-header {
 }
 
 div.fixtures-club-info {
-  width: 20em;
+  width: 30%;
   text-align: center;
   display: inline-block;
-  padding: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.2em;
+  /*padding: 0.5em;*/
 }
 
 div.fixtures-names {
@@ -52,13 +54,19 @@ div.line {
   /*border-bottom: 1px dotted #000;*/
 }
 
+div.mini-profile {
+  display: inline-block;
+  height: 3em;
+  width: 5em;
+}
+
 span.fixtures-owner-name {
   font-weight: bold;
 }
 
 img.mini-profile {
   height: 3em;
-  /*width: 3em;*/
+  max-width: 5em;
 }
 
 img.mini-crest {
@@ -70,7 +78,6 @@ img.mini-crest {
   background-color: #D3D3D3;
 }
 
-
 /*div {
-  border: 1px dotted crimson;
+  border: 1px dotted red;
 }*/

@@ -10,7 +10,9 @@
           <% if index == 0 %>
             <span class="column-header"><%= "HOME" %></span><br>
           <% end %>
-          <img class="mini-profile" src="<%= fixture.home_owner.avatar || "/assets/leo.jpg" %>">
+          <div class="mini-profile">
+            <img class="mini-profile" src="<%= fixture.home_owner.avatar || "/assets/leo.jpg" %>">
+          </div>
           <div class="fixtures-names">
             <span class="fixtures-owner-name">
               <a href="/owners/<%= fixture.home_owner.id %>">
@@ -43,7 +45,9 @@
             </span><br>
             <%= fixture.away_club.name %>
           </div>
-          <img class="mini-profile" src="<%= fixture.away_owner.avatar || "/assets/leo.jpg" %>">
+          <div class="mini-profile">
+            <img class="mini-profile" src="<%= fixture.away_owner.avatar || "/assets/leo.jpg" %>">
+          </div>
         </div>
       <% end %>
     </div>
