@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       else
         previous_owner_points = owner.points
         previous_owner_rank = index + 1
-        owner_rank = previous_owner_rank
+        owner.rank = previous_owner_rank
       end
       owner.save
     end

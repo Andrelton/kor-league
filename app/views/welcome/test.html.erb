@@ -16,7 +16,11 @@
     <%= end_date %>
   </p>
   <p>
-    Number of Fixtures this Month:<br>
-
+    <%  @owners.each do |owner| %>
+      <p>
+        <%= owner.name %><br>
+        <%= owner.heads %>
+      </p>
+    <% end %>
   </p>
 </div>

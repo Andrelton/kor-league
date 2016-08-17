@@ -76,6 +76,7 @@ class Databaser
         date: fixture["date"]
       }
       if fixture["status"] == "FINISHED"
+        fixture_attributes[:completed] = true
         fixture_attributes[:home_club_goals] = fixture["result"]["goalsHomeTeam"]
         fixture_attributes[:away_club_goals] = fixture["result"]["goalsAwayTeam"]
       end
@@ -85,7 +86,7 @@ class Databaser
 
   def update_goals_this_month
     # Retrieves fixtures between the start of the month and today's date
-    completed_fixtures_this_month = Fixture.completed_fixtures_this_month
+    completed_fixtures_this_month = Fixture.get_completed_fixtures_this_month
 
     # Hash that will contain {fd_id: (goals scored in this month)}
     clubs_and_goals_scored = Hash.new(0)

@@ -5,11 +5,17 @@ div.sidebets-outer {
 
 div.sidebets-inner {
   width: 90%;
+  margin: auto;
 }
 
 div.sidebets-column {
   display: inline-block;
   width: 40%;
+}
+
+div.right-column {
+  margin-left: 2em;
+  vertical-align: top;
 }
 
 div.sidebets-owners-wrapper {
@@ -20,13 +26,12 @@ div.sidebets-owners-wrapper {
 
 div.sidebets-owner {
   padding: 0.3em;
-
-  font-weight: bold;
   text-align: left;
 }
 div.sidebets-rank, div.sidebets-number {
   display: inline-block;
-    font-size: 1.2em;
+  font-size: 1.2em;
+  font-weight: bold;
   width: 15%;
 }
 
@@ -48,6 +53,18 @@ div.sidebets-name {
   border: 1px dotted red;
 }*/
 
+div.heads-hidden {
+  font-weight: normal !important;
+  text-align: center;
+  display: none;
+}
+
+div.head-listing {
+  padding: 0.3em;
+/*  border-left: 1px dotted #000;
+  border-right: 1px dotted #000;*/
+}
+
 img.medium-image {
   height: 2em;
   vertical-align: -0.3em;
@@ -56,4 +73,8 @@ img.medium-image {
 span.medium-text {
   font-size: 2em;
   font-weight: bold;
+}
+
+.highlight {
+  background-color: #FFFF99 !important;
 }

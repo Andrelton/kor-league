@@ -1,57 +1,84 @@
 class Fixture < ActiveRecord::Base
   attr_reader :home_club, :away_club, :home_owner, :away_owner
 
-  def self.inter_league_fixtures
-    future_fixtures = self.where("date > ?", DateTime.now).sort_by { |fixture| fixture.date }
-    inter_league_fixtures = []
-    future_fixtures.each do |fixture|
-      fixture.set_club_instance_variables
-      if fixture.has_two_owners?
-        inter_league_fixtures << fixture
-      end
-      break if inter_league_fixtures.length == 15
-    end
-
-    return inter_league_fixtures
-  end
+  after_initialize :set_club_instance_variables
 
   def set_club_instance_variables
     @home_club = Club.find_by(fd_id: self.home_club_id)
     @away_club = Club.find_by(fd_id: self.away_club_id)
   end
 
-  def has_two_owners?
-    home_owners_collection = @home_club.owners
-    if home_owners_collection.any?
-      @home_owner = home_owners_collection.first
-    else
-      return false
-    end
-
-    away_owners_collection = @away_club.owners
-    if away_owners_collection.any?
-      @away_owner = away_owners_collection.first
-    else
-      return false
-    end
-
-    return true
+  # --- CLASS METHODS ---
+  def self.get_completed_fixtures
+    return self.where("date < ?", DateTime.now).order(:date)
   end
 
-  def self.completed_fixtures_this_month
+  def self.get_completed_fixtures_this_month
     # Starting in October:
     # start_of_month = DateTime.now.strftime('%Y-%m-01')
     # start_date = DateTime.parse(start_of_month)
 
-    # Starting in October:
-    # end_of_month = (DateTime.now + 1.month).strftime('%Y-%m-01')
-    # end_date = DateTime.parse(end_of_month)
-
     start_date = DateTime.parse("2016-08-01")
-    end_date = DateTime.parse("2016-10-01")
+    return self.where("date > ?", start_date)
+                                              .where("date < ?", DateTime.now).order(:date)
+  end
 
-    fixtures_this_month = self.where("date > ?", start_date)
-                                              .where("date < ?", DateTime.now)
+  def self.get_future_fixtures
+    return self.where("date > ?", DateTime.now).order(:date)
+  end
+
+
+  def self.get_completed_inter_league_fixtures(count = nil)
+    completed_fixtures = self.get_completed_fixtures
+    return self.find_inter_league_fixtures(completed_fixtures, count)
+  end
+
+  def self.get_future_inter_league_fixtures(count = nil)
+    future_fixtures = self.get_future_fixtures
+    return self.find_inter_league_fixtures(future_fixtures, count)
+  end
+
+  def self.find_inter_league_fixtures(fixtures, count = nil)
+    inter_league_fixtures = []
+    fixtures.each do |fixture|
+      fixture.set_owners
+      inter_league_fixtures << fixture if fixture.has_two_owners?
+      break if count && inter_league_fixtures.length == count
+    end
+    return inter_league_fixtures
+  end
+
+  # --- INSTANCE METHODS ---
+  def set_owners
+    @home_owner = self.home_club.owners.first
+    @away_owner = self.away_club.owners.first
+  end
+
+  def winning_club
+    return nil unless self.completed
+    if self.home_club_goals > self.away_club_goals
+      return self.home_club
+    elsif self.away_club_goals > self.home_club_goals
+      return self.away_club
+    else
+      return nil
+    end
+  end
+
+  def losing_club
+      if self.winning_club
+        return self.winning_club == self.home_club ? self.away_club : self.home_club
+      else
+        return nil
+      end
+  end
+
+  def has_two_owners?
+    if self.away_owner && self.home_owner
+      return true
+    else
+      return false
+    end
   end
 
 end

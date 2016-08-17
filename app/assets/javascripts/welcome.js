@@ -34,6 +34,20 @@ var toggleAvatarForm = function() {
   });
 };
 
+var toggleHeads = function() {
+
+  // $('div.owner-heads').hover(function() {
+  //   $(this).css('cursor', 'pointer');
+  //   $(this).addClass('highlight');
+  // }, function() {
+  //   $(this).removeClass('highlight');
+  // });
+
+  $('div.sidebets-owners-wrapper').on('click', 'div.sidebets-heads-clickable', function() {
+    $(this).children('div.heads-hidden').toggle();
+  });
+};
+
 var disableLinks = function() {
   if (window.location.pathname !== "/") {
     $('div.owner-name a').attr('href', '/');
@@ -45,6 +59,7 @@ var disableLinks = function() {
 $(document).ready(function() {
   formatMatchTimes();
   toggleAvatarForm();
+  toggleHeads();
   disableLinks();
 });
 

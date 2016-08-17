@@ -6,6 +6,23 @@ class Club < ActiveRecord::Base
 
   validates :name, uniqueness: true
 
+  def get_completed_fixtures
+    return Fixture.where(completed: true).where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
+  end
+
+  def heads
+    completed_fixtures = self.get_completed_fixtures
+
+    heads = []
+    completed_fixtures.each do |fixture|
+      if fixture.winning_club == self && fixture.losing_club.owners.any?
+        heads << fixture
+      end
+    end
+
+    return heads
+  end
+
   def get_next_fixture
     # Test code; substitute 'future_date' for 'date' below
     # future_date = DateTime.now + 3.months

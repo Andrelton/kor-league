@@ -10,16 +10,18 @@ class WelcomeController < ApplicationController
   end
 
   def fixtures
-    @fixtures = Fixture.inter_league_fixtures
+    @fixtures = Fixture.get_future_inter_league_fixtures(15)
     render :fixtures
   end
 
   def sidebets
+    @owners_by_heads = Owner.ranked_by_heads
     @owners_by_goals = Owner.ranked_by_goals
   end
 
   def test
     # FootballDataClient.new.test
+    @owners = Owner.ranked_by_heads
     render :test
   end
 

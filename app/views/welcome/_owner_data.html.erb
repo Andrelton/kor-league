@@ -8,14 +8,23 @@
       <span class="bold">
         <%= owner.points %> POINT<%= "S" unless owner.points == 1 %> (<%= ordinal_ranking(owner.rank) %>)<br>
       </span>
-      <span class="emoji">
-        <img class="emoji" src="/assets/monster.png">
-      </span> &nbsp|&nbsp
-      <%= owner.goals_this_month %>
-      <span class="emoji">
-        <img class="emoji" src="/assets/soccer_ball.png">
-      </span>
-      <%= goals_month %>
+
+      <a href="/sidebets">
+        <%= owner.heads.count %>
+        <span class="emoji">
+          <img class="emoji" src="/assets/monster.png">
+        </span>
+      </a>
+
+      &nbsp|&nbsp
+
+      <a href="/sidebets">
+        <%= owner.goals_this_month %>
+        <span class="emoji">
+          <img class="emoji" src="/assets/soccer_ball.png">
+        </span>
+      </a>
+<!--       <%= goals_month %> -->
     </div>
     <div class="profile-pic">
       <img class="profile" src="<%= owner.avatar || "/assets/leo.jpg" %>">
