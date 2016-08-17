@@ -1,10 +1,9 @@
 <div class="fixtures-outer">
+    <span class="column-header title-heading">
+      UPCOMMING LEAGUE FIXTURES
+    </span>
   <div class="fixtures-inner">
-    <div class="line">
-      <span class="column-header">
-        UPCOMMING LEAGUE FIXTURES
-      </span>
-    </div>
+
       <% @fixtures. each_with_index do |fixture, index| %>
         <div>
         <div class="fixtures-club-info left <%= "gray" if index.odd? %>">
@@ -14,7 +13,9 @@
           <img class="mini-profile" src="<%= fixture.home_owner.avatar || "/assets/leo.jpg" %>">
           <div class="fixtures-names">
             <span class="fixtures-owner-name">
-              <%= fixture.home_owner.name %>
+              <a href="/owners/<%= fixture.home_owner.id %>">
+                <%= fixture.home_owner.name %>
+              </a>
             </span><br>
             <%= fixture.home_club.name %>
           </div>
@@ -36,7 +37,9 @@
           <img class="mini-crest" src="<%= fixture.away_club.crest_url %>">
           <div class="fixtures-names">
             <span class="fixtures-owner-name">
-              <%= fixture.away_owner.name %>
+              <a href="/owners/<%= fixture.away_owner.id %>">
+                <%= fixture.away_owner.name %>
+              </a>
             </span><br>
             <%= fixture.away_club.name %>
           </div>

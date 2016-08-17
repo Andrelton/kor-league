@@ -6,6 +6,10 @@ div.fixtures-outer {
   text-align: center;
 }
 
+div.fixtures-inner {
+  margin-top: 1em;
+}
+
 span.column-header {
   font-size: 1.3em;
   font-weight: bold;
@@ -54,7 +58,7 @@ span.fixtures-owner-name {
 
 img.mini-profile {
   height: 3em;
-  width: 3em;
+  /*width: 3em;*/
 }
 
 img.mini-crest {

@@ -6,6 +6,7 @@ div.sidebets-outer {
 div.sidebets-inner {
   width: 90%;
   margin: auto;
+  margin-top: 1em;
 }
 
 div.sidebets-column {

@@ -1,10 +1,8 @@
-<div class="line">
-  <span class="column-header">
-    SIDE BETS
-  </span>
-</div>
 
 <div class="sidebets-outer">
+<!--   <span class="column-header">
+    SIDE BET STANDINGS
+  </span> -->
 
   <div class="sidebets-inner">
 
@@ -69,7 +67,9 @@
               <%= ordinal_ranking(owner.goal_rank) %>
             </div>
             <div class="sidebets-name">
-              <%= owner.name %>
+              <a href="/owners/<%= owner.id %>">
+                <%= owner.name %>
+              </a>
             </div>
             <div class="sidebets-number">
               <%= owner.goals_this_month %>

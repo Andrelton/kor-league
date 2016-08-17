@@ -36,12 +36,12 @@ var toggleAvatarForm = function() {
 
 var toggleHeads = function() {
 
-  // $('div.owner-heads').hover(function() {
-  //   $(this).css('cursor', 'pointer');
-  //   $(this).addClass('highlight');
-  // }, function() {
-  //   $(this).removeClass('highlight');
-  // });
+  $('div.owner-heads').hover(function() {
+    $(this).css('cursor', 'pointer');
+    $(this).addClass('highlight');
+  }, function() {
+    $(this).removeClass('highlight');
+  });
 
   $('div.sidebets-owners-wrapper').on('click', 'div.sidebets-heads-clickable', function() {
     $(this).children('div.heads-hidden').toggle();
