@@ -36,4 +36,18 @@ class TextFileClient
     return avatar_list
   end
 
+  def get_champ_name
+    File.open("champ.txt", "r") do |file|
+      file.each_line do |line|
+        return line
+      end
+    end
+  end
+
+  def set_champ_name(name)
+    File.open("champ.txt", "w") do |file|
+      file.puts name
+    end
+  end
+
 end

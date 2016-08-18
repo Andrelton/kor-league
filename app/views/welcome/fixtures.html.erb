@@ -27,15 +27,25 @@
         <img class="mini-crest" src="<%= fixture.home_club.crest_url %>">
       </div>
 
+      <%
+        belt = false
+        if fixture.home_owner == champ or fixture.away_owner == champ
+          belt = "belt"
+        end
+      %>
       <div class="fixtures-date">
         <% if index == 0 %>
           <br>
         <% end %>
-        <%= fixture.date.strftime('%a, %b %e') %><br>
-        <span class="next-fixture-date"><%= fixture.date.to_i * 1000 %></span>
+        <span class="<%= belt %>">
+          &nbsp<%= fixture.date.strftime('%a, %b %e') %>&nbsp<br>
+          &nbsp<span class="next-fixture-date">
+            <%= fixture.date.to_i * 1000 %>
+          </span>&nbsp
+        </span>
       </div>
 
-      <div class="fixtures-club-info <%= "gray" if index.odd? %>">
+      <div class="fixtures-club-info  <%= "gray" if index.odd? %>">
         <% if index == 0 %>
           <span class="column-header"><%= "AWAY" %></span><br>
         <% end %>
@@ -54,5 +64,8 @@
       </div>
 
     <% end %>
+  <p><br>
+    <strong>Title Belt matchups in bold.</strong>
+  </p>
   </div>
 </div>

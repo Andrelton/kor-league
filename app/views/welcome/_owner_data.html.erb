@@ -3,6 +3,9 @@
   <div class="left-wrapper">
     <div class="owner-name">
       <a href="owners/<%= owner.id %>"><%= owner.name %></a>
+      <% if owner == champ %>
+        <img class="belt" src="/assets/belt_2.png">
+      <% end %>
     </div>
     <div class="point-data">
       <span class="bold">

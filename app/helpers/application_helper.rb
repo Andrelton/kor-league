@@ -10,4 +10,9 @@ module ApplicationHelper
     today += 1.month if today < DateTime.parse("2016-09-01")
     return today.strftime('%^b')
   end
+
+  def champ
+    champ_name = TextFileClient.new.get_champ_name
+    @champ ||= Owner.find_by(name: champ_name)
+  end
 end

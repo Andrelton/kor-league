@@ -65,6 +65,17 @@ span.fixtures-owner-name {
   font-weight: bold;
 }
 
+span.belt {
+  color: #FFF;
+  /*background-color: #551A8B;*/
+  background-color: #000;
+  font-weight: bold;
+/*  padding: 0.2em;*/
+}
+
+span.purple {
+}
+
 img.mini-profile {
   height: 3em;
   max-width: 5em;
