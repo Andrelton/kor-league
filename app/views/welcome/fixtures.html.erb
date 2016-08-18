@@ -4,54 +4,52 @@
     </span>
   <div class="fixtures-inner">
 
-      <% @fixtures. each_with_index do |fixture, index| %>
-        <div>
-        <div class="fixtures-club-info left <%= "gray" if index.odd? %>">
-          <% if index == 0 %>
-            <span class="column-header"><%= "HOME" %></span><br>
-          <% end %>
-          <div class="mini-profile">
-            <img class="mini-profile" src="<%= fixture.home_owner.avatar || "/assets/leo.jpg" %>">
-          </div>
-          <div class="fixtures-names">
-            <span class="fixtures-owner-name">
-              <a href="/owners/<%= fixture.home_owner.id %>">
-                <%= fixture.home_owner.name %>
-              </a>
-            </span><br>
-            <%= fixture.home_club.name %>
-          </div>
-          <img class="mini-crest" src="<%= fixture.home_club.crest_url %>">
-        </div>
+    <% @fixtures. each_with_index do |fixture, index| %>
 
-        <div class="fixtures-date">
-          <% if index == 0 %>
-            <br>
-          <% end %>
-          <%= fixture.date.strftime('%a, %b %e') %><br>
-          <span class="next-fixture-date"><%= fixture.date.to_i * 1000 %></span>
+      <div class="fixtures-club-info left <%= "gray" if index.odd? %>">
+        <% if index == 0 %>
+          <span class="column-header"><%= "HOME" %></span><br>
+        <% end %>
+        <div class="mini-profile">
+          <img class="mini-profile" src="<%= fixture.home_owner.avatar || "/assets/leo.jpg" %>">
         </div>
+        <div class="fixtures-names">
+          <span class="fixtures-owner-name">
+            <a href="/owners/<%= fixture.home_owner.id %>">
+              <%= fixture.home_owner.name %>
+            </a>
+          </span><br>
+          <%= fixture.home_club.name %>
+        </div>
+        <img class="mini-crest" src="<%= fixture.home_club.crest_url %>">
+      </div>
 
-        <div class="fixtures-club-info <%= "gray" if index.odd? %>">
-          <% if index == 0 %>
-            <span class="column-header"><%= "AWAY" %></span><br>
-          <% end %>
-          <img class="mini-crest" src="<%= fixture.away_club.crest_url %>">
-          <div class="fixtures-names">
-            <span class="fixtures-owner-name">
-              <a href="/owners/<%= fixture.away_owner.id %>">
-                <%= fixture.away_owner.name %>
-              </a>
-            </span><br>
-            <%= fixture.away_club.name %>
-          </div>
-          <div class="mini-profile">
-            <img class="mini-profile" src="<%= fixture.away_owner.avatar || "/assets/leo.jpg" %>">
-          </div>
+      <div class="fixtures-date">
+        <% if index == 0 %>
+          <br>
+        <% end %>
+        <%= fixture.date.strftime('%a, %b %e') %><br>
+        <span class="next-fixture-date"><%= fixture.date.to_i * 1000 %></span>
+      </div>
+
+      <div class="fixtures-club-info <%= "gray" if index.odd? %>">
+        <% if index == 0 %>
+          <span class="column-header"><%= "AWAY" %></span><br>
+        <% end %>
+        <img class="mini-crest" src="<%= fixture.away_club.crest_url %>">
+        <div class="fixtures-names">
+          <span class="fixtures-owner-name">
+            <a href="/owners/<%= fixture.away_owner.id %>">
+              <%= fixture.away_owner.name %>
+            </a>
+          </span><br>
+          <%= fixture.away_club.name %>
         </div>
-      <% end %>
-    </div>
+        <div class="mini-profile">
+          <img class="mini-profile" src="<%= fixture.away_owner.avatar || "/assets/leo.jpg" %>">
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
-
-<div class="footer"></div>

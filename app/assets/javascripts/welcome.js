@@ -28,9 +28,9 @@ var formatMatchTimes = function() {
   });
 };
 
-var toggleAvatarForm = function() {
-  $('div.change-avatar').on('click', 'button', function() {
-    $('div.change-avatar-form').toggle();
+var toggleDashboard = function() {
+  $('div.dashboard-outer').on('click', 'button.show-dashboard', function() {
+    $('div.dashboard').toggle();
   });
 };
 
@@ -54,13 +54,36 @@ var disableLinks = function() {
   };
 };
 
+var confirmAvatarChange = function() {
+  $('div.change-avatar').on('click', 'input[type=submit]', function(event) {
+    event.preventDefault();
+    if (confirm("Do you really want to change this avatar?")) {
+      $(this).parent('form').submit();
+    };
+  });
+};
+
+var toggleAvatarForm = function() {
+  $('div.change-avatar').on('click', 'a.change-avatar', function(event) {
+    event.preventDefault();
+    var form = $('div.change-avatar-form');
+    if (form.css('visibility') === 'hidden') {
+      form.css('visibility', 'visible')
+    } else {
+      form.css('visibility', 'hidden')
+    };
+  })
+};
+
 // $(document).ready(main);
 
 $(document).ready(function() {
   formatMatchTimes();
-  toggleAvatarForm();
+  toggleDashboard();
   toggleHeads();
   disableLinks();
+  confirmAvatarChange();
+  toggleAvatarForm();
 });
 
 

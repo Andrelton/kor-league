@@ -3,24 +3,49 @@
   <%= render partial: "owner_data", locals: { owner: @owner } %>
 </div>
 
-<div class="console change-avatar">
-  <button class="change-avatar">Change Avatar</button>
-  <div class="change-avatar-form">
-    <p>
-      New Avatar URL:
-    </p>
-    <form method="POST" action="/update/avatar/<%= @owner.id %>">
-      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      <input type="text" name="image_url">
-      <input type="submit" value="Submit">
-    </form>
+<div class="dashboard-outer">
 
-    <p>
-      <form method="POST" action="/update/avatar/<%= @owner.id %>">
-        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-        <input type="hidden" name="restore">
-        <input type="submit" value="Restore to Leo">
-      </form>
-    </p>
+  <div class="dashboard-inner">
+    <div class="show-dashboard-button">
+      <button class="show-dashboard">Show Dashboard</button>
+    </div>
+    <div class="dashboard">
+
+      <div class="change-avatar">
+        <p>
+          <a class="change-avatar" href="/owners/<%= @owner.id %>">
+            <strong>CHANGE AVATAR</strong>
+          </a>
+        </p>
+        <div class="change-avatar-form">
+          <p>
+            New Avatar URL:
+          </p>
+          <form method="POST" action="/update/avatar/<%= @owner.id %>">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input type="text" name="image_url">
+            <input type="submit" value="Submit">
+          </form>
+          <p>
+            <form method="POST" action="/update/avatar/<%= @owner.id %>">
+              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+              <input type="hidden" name="restore">
+              <input type="submit" value="Restore to Leo">
+            </form>
+          </p>
+        </div>
+      </div>
+
+      <div class="schedule">
+        <p>
+          <strong>SCHEDULE</strong>
+        </p>
+        <p>
+          Click club names above or VIEW FIXTURES VS LEAGUE.
+        </p>
+      </div>
+
+    </div>
+      <!-- <div class="footer"></div> -->
   </div>
 </div>

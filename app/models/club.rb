@@ -23,10 +23,14 @@ class Club < ActiveRecord::Base
     return heads
   end
 
+  def get_fixtures(number = 1)
+
+  end
+
   def get_next_fixture
-    # Test code; substitute 'future_date' for 'date' below
-    # future_date = DateTime.now + 3.months
-    # return false unless self.fd_id
+    next_fixture = Fixture.where("date > ?", DateTime.now)
+      .where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
+      .order(:date).first
 
     next_fixture = Fixture.where("date > ?", DateTime.now)
       .where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
