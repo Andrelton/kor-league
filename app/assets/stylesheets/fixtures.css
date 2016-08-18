@@ -29,7 +29,7 @@ div.fixtures-names {
   display: inline-block;
   margin-top: 0.5em;
   vertical-align: top;
-  width: 13em;
+  width: 10em;
   text-align: center;
 }
 
@@ -79,6 +79,6 @@ img.mini-crest {
   background-color: #D3D3D3;
 }
 
-/*div {
+div {
   border: 1px dotted red;
-}*/
+}
