@@ -185,8 +185,14 @@ img.emoji {
 }
 
 img.belt {
-  height: 1em;
-  vertical-align: -0.2em;
+  height: 0.8em;
+  /*vertical-align: 0.15em;*/
+}
+
+span.crown {
+    font-size: 0.8em;
+    color: #FFF;
+    background-color: #000;
 }
 
 a {

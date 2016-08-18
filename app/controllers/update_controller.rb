@@ -12,6 +12,12 @@ class UpdateController < ApplicationController
     redirect_to root_path
   end
 
+  def champ
+    TextFileClient.new.set_champ_name(params[:owner_name])
+
+    redirect_to "/eric_console"
+  end
+
   def avatar
     owner_id = params[:id]
 

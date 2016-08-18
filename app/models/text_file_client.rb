@@ -46,7 +46,7 @@ class TextFileClient
 
   def set_champ_name(name)
     File.open("champ.txt", "w") do |file|
-      file.puts name
+      file.print name
     end
   end
 

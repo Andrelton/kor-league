@@ -6,7 +6,9 @@
     UPCOMMING LEAGUE FIXTURES
   </h2>
   <div class="fixtures-inner">
-
+    <%
+      champ_fixture_listed = false
+    %>
     <% @fixtures. each_with_index do |fixture, index| %>
 
       <div class="fixtures-club-info left <%= "gray" if index.odd? %>">
@@ -29,8 +31,13 @@
 
       <%
         belt = false
-        if fixture.home_owner == champ or fixture.away_owner == champ
-          belt = "belt"
+        if (fixture.home_owner == champ or fixture.away_owner == champ)
+          if !champ_fixture_listed
+            belt = "belt"
+            champ_fixture_listed = true
+          else
+            belt = "sub-belt"
+          end
         end
       %>
       <div class="fixtures-date">
@@ -65,7 +72,7 @@
 
     <% end %>
   <p><br>
-    <strong>Title Belt matchups in bold.</strong>
+    <span class="belt">&nbspTitle Match </span>&nbsp | <span class="sub-belt"> Poss. Title Match </span> | Reg. H-2-H
   </p>
   </div>
 </div>

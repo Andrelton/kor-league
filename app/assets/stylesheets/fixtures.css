@@ -73,6 +73,10 @@ span.belt {
 /*  padding: 0.2em;*/
 }
 
+span.sub-belt {
+  font-weight: bold;
+}
+
 span.purple {
 }
 

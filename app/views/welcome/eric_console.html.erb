@@ -4,7 +4,7 @@
   </h3>
   <form method="POST" action="/update/points">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Exectue">
+    <input type="submit" value="Update">
   </form>
 
   <h3>
@@ -12,15 +12,37 @@
   </h3>
   <form method="POST" action="/update/goals">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Exectue">
+    <input type="submit" value="Update">
   </form>
+
+  <h3>
+    Update Champ
+  </h3>
+    <%
+    champ_name = TextFileClient.new.get_champ_name
+  %>
+  <p>
+    Current Champ: <strong><%= champ_name %></strong>
+  </p>
+  <p>
+  <form method="POST" action="/update/champ">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <% @owners.each do |owner| %>
+      <input type="radio" name="owner_name" value="<%= owner.name %>" <%= "checked" if owner.name == champ_name %>><%= owner.name %><br>
+    <% end %>
+    <p>
+      <input type="submit" value="Update">
+    </p>
+  </form>
+  </p>
+
 
   <h3>
     Update Avatars File
   </h3>
   <form method="POST" action="/update/avatar_list">
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Exectue">
+    <input type="submit" value="Update">
   </form>
 
   <h3>

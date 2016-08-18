@@ -26,6 +26,7 @@ class WelcomeController < ApplicationController
   end
 
   def eric_console
+    @owners = Owner.all
     @avatar_list = TextFileClient.new.read_avatar_list
     render :eric_console
   end
