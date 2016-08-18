@@ -6,7 +6,8 @@ div.dashboard-inner {
 div.dashboard {
   border-left: 10px solid silver;
   border-right: 10px solid silver;
-  /*display: none;*/
+  display: none;
+  margin-bottom: 2em;
 }
 
 div.show-dashboard-button {
@@ -17,7 +18,8 @@ div.show-dashboard-button {
 
 div.change-avatar {
   display: inline-block;
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   text-align: center;
 }
 

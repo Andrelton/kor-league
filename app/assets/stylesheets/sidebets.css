@@ -77,6 +77,10 @@ span.medium-text {
   font-weight: bold;
 }
 
+span.italic {
+  font-style: italic;
+}
+
 .highlight {
   background-color: #FFFF99 !important;
 }

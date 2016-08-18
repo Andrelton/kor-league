@@ -2,8 +2,12 @@
 <div class="sidebets-outer">
 <!--   <span class="column-header">
     SIDE BET STANDINGS
-  </span> -->
+  </span>
+ -->
 
+  <h2>
+    SIDE BET STANDINGS
+  </h2>
   <div class="sidebets-inner">
 
     <div class="sidebets-column">
@@ -35,8 +39,8 @@
               %>
                 <div class="head-listing">
                   <strong><%= losing_club.owners.first.name %></strong>
-                  | <%= losing_club.name %> -
-                  <%= head.date.strftime('%a, %b %e')%>
+                  | <span class="italic"><%= losing_club.name %> -
+                  <%= head.date.strftime('%a, %b %e')%></span>
                 </div>
               <%
                   end

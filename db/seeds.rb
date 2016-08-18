@@ -12,26 +12,29 @@
 # https://s9.postimg.org/f60pqxmun/eric.jpg
 
 
-Owner.create(name: "Brad", avatar: "https://s10.postimg.io/6d5s00l89/brad.jpg")
-Owner.create(name: "Dean", avatar: "https://s3.postimg.io/wrq5pieoj/dean.jpg")
-Owner.create(name: "Rik")
-Owner.create(name: "Eric", avatar: "https://s9.postimg.org/f60pqxmun/eric.jpg")
-Owner.create(name: "Nick")
-Owner.create(name: "Jarred")
-Owner.create(name: "John K.")
-Owner.create(name: "Mark")
-Owner.create(name: "John Z.")
-Owner.create(name: "Matt")
-Owner.create(name: "Luke")
+# Owner.create(name: "Brad", avatar: "https://s10.postimg.io/6d5s00l89/brad.jpg")
+# Owner.create(name: "Dean", avatar: "https://s3.postimg.io/wrq5pieoj/dean.jpg")
+# Owner.create(name: "Rik")
+# Owner.create(name: "Eric", avatar: "https://s9.postimg.org/f60pqxmun/eric.jpg")
+# Owner.create(name: "Nick")
+# Owner.create(name: "Jarred")
+# Owner.create(name: "John K.")
+# Owner.create(name: "Mark")
+# Owner.create(name: "John Z.")
+# Owner.create(name: "Matt")
+# Owner.create(name: "Luke")
 
-databaser = Databaser.new
+# databaser = Databaser.new
 
-databaser.seed_pretty_club_names
-databaser.seed_clubs
-databaser.assign_clubs_to_owners
-databaser.seed_fixtures
+# databaser.seed_pretty_club_names
+# databaser.seed_clubs
+# databaser.assign_clubs_to_owners
+# databaser.seed_fixtures
 
-man_city = Club.find_by(fd_id: 65)
-man_city.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
-man_city.save
+# man_city = Club.find_by(fd_id: 65)
+# man_city.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
+# man_city.save
+
+Fixture.delete_all
+Databaser.new.seed_fixtures
 
