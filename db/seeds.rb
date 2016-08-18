@@ -35,6 +35,6 @@
 # man_city.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
 # man_city.save
 
-Fixture.delete_all
-Databaser.new.seed_fixtures
+# Fixture.delete_all
+# Databaser.new.seed_fixtures
 

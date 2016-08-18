@@ -103,8 +103,6 @@ class Databaser
       club.goals_this_month = clubs_and_goals_scored[fd_id]
       club.save
     end
-
-    return Club.find_by(name: "Liverpool").goals_this_month
   end
 
   def update_owner_goals
