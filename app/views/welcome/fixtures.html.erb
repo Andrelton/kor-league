@@ -20,9 +20,15 @@
         </div>
         <div class="fixtures-names">
           <span class="fixtures-owner-name">
+            <% if fixture.home_owner == champ %>
+              <span class="star-simple">&#9733</span>
+            <% end %>
             <a href="/owners/<%= fixture.home_owner.id %>">
               <%= fixture.home_owner.name %>
             </a>
+            <% if fixture.home_owner == champ %>
+              <span class="star-simple">&#9733</span>
+            <% end %>
           </span><br>
           <%= fixture.home_club.name %>
         </div>
@@ -59,9 +65,15 @@
         <img class="mini-crest" src="<%= fixture.away_club.crest_url %>">
         <div class="fixtures-names">
           <span class="fixtures-owner-name">
+            <% if fixture.away_owner == champ %>
+              <span class="star-simple">&#9733</span>
+            <% end %>
             <a href="/owners/<%= fixture.away_owner.id %>">
               <%= fixture.away_owner.name %>
             </a>
+            <% if fixture.away_owner == champ %>
+              <span class="star-simple">&#9733</span>
+            <% end %>
           </span><br>
           <%= fixture.away_club.name %>
         </div>

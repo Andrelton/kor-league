@@ -189,10 +189,14 @@ img.belt {
   /*vertical-align: 0.15em;*/
 }
 
-span.crown {
-    font-size: 0.8em;
-    color: #FFF;
-    background-color: #000;
+span.star {
+  font-size: 0.8em;
+  color: #FFF;
+  background-color: #000
+}
+
+span.star-simple {
+  font-size: 0.8em;
 }
 
 a {
