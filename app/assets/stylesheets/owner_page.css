@@ -1,6 +1,6 @@
 div.dashboard-inner {
   margin: auto;
-  width: 80%;
+  width: 90%;
 }
 
 div.dashboard {
@@ -33,7 +33,7 @@ div.schedule {
   margin-right: 2em;
   vertical-align: top;
   text-align: center;
-  width: 60%;
+  width: 50%;
 }
 
 button, input[type=submit] {
