@@ -17,7 +17,7 @@ span.column-header {
 }
 
 div.fixtures-club-info {
-  width: 37%;
+  width: 39%;
   text-align: center;
   display: inline-block;
   padding-top: 0.3em;
@@ -79,6 +79,6 @@ img.mini-crest {
   background-color: #D3D3D3;
 }
 
-div {
+/*div {
   border: 1px dotted red;
-}
+}*/
