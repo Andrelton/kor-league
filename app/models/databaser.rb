@@ -92,6 +92,9 @@ class Databaser
       club.points = team["points"]
       club.played = team["played"]
 
+      # REMOVE IF SWITCHING GOAL COUNTING TO
+      club.goals_this_month = team["goals"]
+
       club.save
     end
   end
@@ -115,31 +118,6 @@ class Databaser
     end
   end
 
-  def update_fixtures
-    all_fixtures = FootballDataClient.new.get_all_fixtures
-  end
-
-  def update_club_goals_this_month
-    # Retrieves fixtures between the start of the month and today's date
-    completed_fixtures_this_month = Fixture.get_completed_fixtures_this_month
-
-    # Hash that will contain {fd_id: (goals scored in this month)}
-    clubs_and_goals_scored = Hash.new(0)
-
-    # Assembles a running total of goals scored this month
-    completed_fixtures_this_month.each do |fixture|
-      clubs_and_goals_scored[fixture.home_club_id] += fixture.home_club_goals
-      clubs_and_goals_scored[fixture.away_club_id] += fixture.away_club_goals
-    end
-
-    # Sets each club's 'goals_this_month' according to hash, above
-    clubs_and_goals_scored.each do |fd_id, goals|
-      club = Club.find_by(fd_id: fd_id)
-      club.goals_this_month = clubs_and_goals_scored[fd_id]
-      club.save
-    end
-  end
-
   def update_owner_goals_this_month
     Owner.all.each do |owner|
       owner_goals_this_month = 0
@@ -152,5 +130,33 @@ class Databaser
       owner.save
     end
   end
+
+  def update_fixtures
+    all_fixtures = FootballDataClient.new.get_all_fixtures
+  end
+
+  # !!! THIS CALCULATES GOALS FROM FIXTURES, MORE SLOWLY !!!
+  # def update_club_goals_this_month
+  #   # Retrieves fixtures between the start of the month and today's date
+  #   completed_fixtures_this_month = Fixture.get_completed_fixtures_this_month
+
+  #   # Hash that will contain {fd_id: (goals scored in this month)}
+  #   clubs_and_goals_scored = Hash.new(0)
+
+  #   # Assembles a running total of goals scored this month
+  #   completed_fixtures_this_month.each do |fixture|
+  #     clubs_and_goals_scored[fixture.home_club_id] += fixture.home_club_goals
+  #     clubs_and_goals_scored[fixture.away_club_id] += fixture.away_club_goals
+  #   end
+
+  #   # Sets each club's 'goals_this_month' according to hash, above
+  #   clubs_and_goals_scored.each do |fd_id, goals|
+  #     club = Club.find_by(fd_id: fd_id)
+  #     club.goals_this_month = clubs_and_goals_scored[fd_id]
+  #     club.save
+  #   end
+  # end
+
+
 
 end

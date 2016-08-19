@@ -1,13 +1,18 @@
 class UpdateController < ApplicationController
   def points
-    redirect_to root_path
+    databaser = Databaser.new
+
+    databaser.update_clubs
+    databaser.update_owner_ranks
+    databaser.update_owner_goals_this_month
+
+    redirect_to "/eric_console"
   end
 
   def goals
     databaser = Databaser.new
 
     databaser.update_club_goals_this_month
-    databaser.update_owner_goals_this_month
 
     redirect_to root_path
   end
