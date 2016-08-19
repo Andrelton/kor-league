@@ -6,7 +6,7 @@ div.dashboard-inner {
 div.dashboard {
   border-left: 10px solid silver;
   border-right: 10px solid silver;
-  /*display: none;*/
+  display: none;
   margin-bottom: 2em;
 }
 
