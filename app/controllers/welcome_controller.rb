@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   end
 
   def async_fixtures
-    inter_league_fixtures = Fixture.get_future_inter_league_fixtures_by_owner(@owner.id, 5)
+    inter_league_fixtures = Fixture.get_future_inter_league_fixtures_by_owner(params[:owner_id], 5)
     render partial: "dashboard_fixtures", locals: { inter_league_fixtures: inter_league_fixtures}
   end
 

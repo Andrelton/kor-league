@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/fixtures' => 'welcome#fixtures'
   get '/sidebets' => 'welcome#sidebets'
 
+  get '/async_fixtures' => 'welcome#async_fixtures'
+
   get '/eric_console' => 'welcome#eric_console'
 
   post '/update/points' => 'update#points'

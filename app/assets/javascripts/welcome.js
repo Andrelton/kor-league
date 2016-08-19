@@ -23,7 +23,7 @@ var formatMatchTimes = function() {
     // var momentObject = moment(new Date(element.text()));
     // var newText = momentObject.format('h:mma').slice(0, -1);
     // element.text("(" + newText + ")");
-
+    element.removeClass('next-fixture-date');
     element.show();
   });
 };

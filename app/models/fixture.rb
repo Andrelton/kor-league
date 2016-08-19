@@ -51,7 +51,7 @@ class Fixture < ActiveRecord::Base
   def self.get_future_inter_league_fixtures_by_owner(owner_id, count)
     owner_clubs_fd_ids = Owner.find(owner_id).clubs.map(&:fd_id)
 
-    all_future_inter_league_fixures = self.get_future_inter_league_fixtures(30)
+    all_future_inter_league_fixures = self.get_future_inter_league_fixtures(35)
 
     owner_future_inter_league_fixtures = []
     all_future_inter_league_fixures.each do |fixture|

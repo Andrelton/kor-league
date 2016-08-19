@@ -42,7 +42,7 @@
             <strong>SCHEDULE</strong>
           </p>
           <p>
-            <a class="trigger-dashboard-fixtures" href="/">
+            <a class="trigger-dashboard-fixtures" href="/" data-owner_id="<%= @owner.id %>">
               VIEW FIXTURES VS LEAGUE
             </a><br>
             or click a club name above.
@@ -52,9 +52,8 @@
               <em>Loading...</em>
             </p>
           </div>
-          <div class="dashboard-fixtures">
-
-          </div>
+          <!-- This will contain fixture info, e.g. the '_dashboard_fixtures' partial -->
+          <div class="dashboard-fixtures"></div>
         </div>
       </div>
 
