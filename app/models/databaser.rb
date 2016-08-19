@@ -153,7 +153,4 @@ class Databaser
     end
   end
 
-
-
-  def
 end
