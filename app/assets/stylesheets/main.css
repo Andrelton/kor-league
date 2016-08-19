@@ -194,6 +194,11 @@ span.star-simple {
   font-size: 0.8em;
 }
 
+span.live {
+  font-size: 0.8em;
+  background-color: #FF0;
+}
+
 a {
   text-decoration: none;
   color: #000;

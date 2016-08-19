@@ -28,25 +28,25 @@ class Club < ActiveRecord::Base
   end
 
   def get_next_fixture
-    next_fixture = Fixture.where("date > ?", DateTime.now)
+    next_fixture = Fixture.where("date > ?", DateTime.now - 2.hours)
       .where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
       .order(:date).first
 
-    next_fixture = Fixture.where("date > ?", DateTime.now)
-      .where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
-      .order(:date).first
+    if (next_fixture.date - DateTime.now) < 2.hours
+      next_fixture.live = true
+    end
 
     opponent = nil
     if next_fixture.home_club_id == self.fd_id
-      opponent = Club.find_by(fd_id: next_fixture.away_club_id)
+      next_fixture.opponent = Club.find_by(fd_id: next_fixture.away_club_id)
     else
-      opponent = Club.find_by(fd_id: next_fixture.home_club_id)
+      next_fixture.opponent = Club.find_by(fd_id: next_fixture.home_club_id)
     end
 
-    @next_fixture = { date: next_fixture.date, opponent: opponent }
+    return next_fixture
   end
 
   def next_fixture
-    @next_fixture || get_next_fixture
+    @next_fixture ||= get_next_fixture
   end
 end

@@ -1,6 +1,6 @@
 class Fixture < ActiveRecord::Base
   attr_reader :home_club, :away_club, :home_owner, :away_owner
-  attr_accessor :opp_owner
+  attr_accessor :opponent, :opp_owner, :live
 
   after_initialize :set_club_instance_variables
 
@@ -25,7 +25,7 @@ class Fixture < ActiveRecord::Base
   end
 
   def self.get_future_fixtures
-    return self.where("date > ?", DateTime.now).order(:date)
+    return self.where("date > ?", DateTime.now - 2.hours).order(:date)
   end
 
   def self.get_completed_inter_league_fixtures(count = nil)
