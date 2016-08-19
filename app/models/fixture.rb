@@ -1,5 +1,6 @@
 class Fixture < ActiveRecord::Base
   attr_reader :home_club, :away_club, :home_owner, :away_owner
+  attr_accessor :opp_owner
 
   after_initialize :set_club_instance_variables
 
@@ -27,7 +28,6 @@ class Fixture < ActiveRecord::Base
     return self.where("date > ?", DateTime.now).order(:date)
   end
 
-
   def self.get_completed_inter_league_fixtures(count = nil)
     completed_fixtures = self.get_completed_fixtures
     return self.find_inter_league_fixtures(completed_fixtures, count)
@@ -46,6 +46,27 @@ class Fixture < ActiveRecord::Base
       break if count && inter_league_fixtures.length == count
     end
     return inter_league_fixtures
+  end
+
+  def self.get_future_inter_league_fixtures_by_owner(owner_id, count)
+    owner_clubs_fd_ids = Owner.find(owner_id).clubs.map(&:fd_id)
+
+    all_future_inter_league_fixures = self.get_future_inter_league_fixtures(30)
+
+    owner_future_inter_league_fixtures = []
+    all_future_inter_league_fixures.each do |fixture|
+      if owner_clubs_fd_ids.include?(fixture.home_club_id)
+        fixture.opp_owner = fixture.away_owner
+        owner_future_inter_league_fixtures << fixture
+      end
+      if owner_clubs_fd_ids.include?(fixture.away_club_id)
+        fixture.opp_owner = fixture.home_owner
+        owner_future_inter_league_fixtures << fixture
+      end
+      break if owner_future_inter_league_fixtures.count == count
+    end
+
+    return owner_future_inter_league_fixtures
   end
 
   # --- INSTANCE METHODS ---

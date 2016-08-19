@@ -84,6 +84,8 @@ $(document).ready(function() {
   disableLinks();
   confirmAvatarChange();
   toggleAvatarForm();
+
+  loadFixtures();
 });
 
 

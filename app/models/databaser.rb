@@ -1,4 +1,5 @@
 class Databaser
+  # *** SEED DATABASE ***
   def get_club_fd_id(url)
     url.split("/").last
   end
@@ -11,27 +12,19 @@ class Databaser
   end
 
   def seed_clubs
-    fd_client = FootballDataClient.new
-    all_teams = fd_client.get_all_teams
+    all_teams = FootballDataClient.new.get_all_teams
 
     all_teams.each do |team|
       club_attributes = {
         # ! country: ,
         fd_id: get_club_fd_id(team["_links"]["team"]["href"]),
         fd_name: team["teamName"],
-        name: "TEST",
         crest_url: team["crestURI"],
         points: team["points"],
         played: team["playedGames"]
       }
       create_club(club_attributes)
     end
-
-    # Create placeholder clubs for Spanish and Italian Leagues
-    # placeholder_clubs = TextFileClient.new.get_placeholder_clubs
-    # placeholder_clubs.each do |club_info|
-    #   Club.create(name: club_info[0], crest_url: club_info[1])
-    # end
   end
 
   def seed_pretty_club_names
@@ -84,7 +77,49 @@ class Databaser
     end
   end
 
-  def update_goals_this_month
+
+  # *** UPDATE DATABASE ***
+    def update_clubs
+    # Updates from API League Table
+    all_teams = FootballDataClient.new.get_all_teams
+
+    # a 'team' is a nested hash of club data taken from
+    # the league table referenced above
+    all_teams.each do |team|
+      team_fd_id = get_club_fd_id(team["_links"]["team"]["href"])
+      club = Club.find_by(fd_id: team_fd_id)
+
+      club.points = team["points"]
+      club.played = team["played"]
+
+      club.save
+    end
+  end
+
+   def update_owner_ranks
+    owners = Owner.all
+    ranked_owners = owners.sort_by { |owner| owner.points }.reverse!
+
+    previous_owner_points = nil
+    previous_owner_rank = nil
+
+    ranked_owners.each_with_index do |owner, index|
+      if owner.points == previous_owner_points
+        owner.rank = previous_owner_rank
+      else
+        previous_owner_points = owner.points
+        previous_owner_rank = index + 1
+        owner.rank = previous_owner_rank
+      end
+      owner.save
+    end
+  end
+
+  def update_fixtures
+    all_fixtures = FootballDataClient.new.get_all_fixtures
+  end
+
+  def update_club_goals_this_month
     # Retrieves fixtures between the start of the month and today's date
     completed_fixtures_this_month = Fixture.get_completed_fixtures_this_month
 
@@ -105,7 +140,7 @@ class Databaser
     end
   end
 
-  def update_owner_goals
+  def update_owner_goals_this_month
     Owner.all.each do |owner|
       owner_goals_this_month = 0
       owner.clubs.each do |club|
@@ -117,4 +152,8 @@ class Databaser
       owner.save
     end
   end
+
+
+
+  def
 end

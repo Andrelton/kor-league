@@ -1,56 +1,84 @@
-<div class="console">
-  <h3>
-    Update Points
-  </h3>
-  <form method="POST" action="/update/points">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Update">
-  </form>
-
-  <h3>
-    Update Goals this Month
-  </h3>
-  <form method="POST" action="/update/goals">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Update">
-  </form>
-
-  <h3>
-    Update Champ
-  </h3>
-    <%
-    champ_name = TextFileClient.new.get_champ_name
-  %>
-  <p>
-    Current Champ: <strong><%= champ_name %></strong>
-  </p>
-  <p>
-  <form method="POST" action="/update/champ">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <% @owners.each do |owner| %>
-      <input type="radio" name="owner_name" value="<%= owner.name %>" <%= "checked" if owner.name == champ_name %>><%= owner.name %><br>
-    <% end %>
+<div class="eric_console-outer-wrapper">
+  <div class="eric_console-task-wrapper">
+    <h3>
+      Update Club Points and Owner Point Ranks
+    </h3>
     <p>
-      <input type="submit" value="Update">
+      This fetches the "League Table" from the football-data.org API, and uses it to update each club's points and games played.
     </p>
-  </form>
-  </p>
+    <p>
+      This also calculates each owner's points (a method on the model, not a database field) and updates the owner's points rank (a database field, so that it can be easily used on both the index page and the ind. owner page).
+    </p>
+    <p>
+      (databaser).update_clubs -><br>
+      football_data_client.get_all_teams
+    </p>
+    <p>
+      (databaser).update_owner_ranks
+    </p>
+    <form method="POST" action="/update/points">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="Update">
+    </form>
+  </div>
 
+  <div class="eric_console-task-wrapper">
+    <h3>
+      Update Fixtures and Goals this Month
+    </h3>
+    <p>
 
-  <h3>
-    Update Avatars File
-  </h3>
-  <form method="POST" action="/update/avatar_list">
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="submit" value="Update">
-  </form>
+    </p>
+    <p>
+      This then uses the updated fixtures to update both club and owner goals scored this month, both database fields.
+    </p>
+    <form method="POST" action="/update/goals">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="Update">
+    </form>
+  </div>
 
-  <h3>
-    Avatar List
-  </h3>
-  <p>
-    <% @avatar_list.each do |avatar| %>
-      <%= avatar %><br>
-    <% end %>
-  </p>
+  <div class="eric_console-task-wrapper">
+    <div class="update-champ">
+      <h3>
+        Update Champ
+      </h3>
+        <%
+        champ_name = TextFileClient.new.get_champ_name
+      %>
+      <p>
+        Current Champ: <strong><%= champ_name %></strong>
+      </p>
+      <p>
+      <form method="POST" action="/update/champ">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <% @owners.each do |owner| %>
+          <input type="radio" name="owner_name" value="<%= owner.name %>" <%= "checked" if owner.name == champ_name %>><%= owner.name %><br>
+        <% end %>
+        <p>
+          <input type="submit" value="Update">
+        </p>
+      </form>
+      </p>
+    </div>
+  </div>
+
+  <div class="eric_console-task-wrapper">
+    <h3>
+      Update Avatars File
+    </h3>
+    <form method="POST" action="/update/avatar_list">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="Update">
+    </form>
+
+    <h3>
+      Avatar List
+    </h3>
+    <p>
+      <% @avatar_list.each do |avatar| %>
+        <%= avatar %><br>
+      <% end %>
+    </p>
+  </div>
 </div>

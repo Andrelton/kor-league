@@ -4,9 +4,15 @@ class WelcomeController < ApplicationController
     render :index
   end
 
+  # By convention, this should be #show...
   def owners
     @owner = Owner.find(params[:id])
     render :owner_page
+  end
+
+  def async_fixtures
+    inter_league_fixtures = Fixture.get_future_inter_league_fixtures_by_owner(@owner.id, 5)
+    render partial: "dashboard_fixtures", locals: { inter_league_fixtures: inter_league_fixtures}
   end
 
   def fixtures

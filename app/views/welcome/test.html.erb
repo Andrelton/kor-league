@@ -1,26 +1,25 @@
-<div class="console">
-  <p>
-    Current time:<br>
-    <%= DateTime.now %>
-  </p>
-  <p>
-    Start of month:<br>
-    <%
-      start_date = DateTime.parse("2016-08-01")
-      end_date = DateTime.parse("2016-10-01")
-    %>
-    <%= start_date %>
-  </p>
-  <p>
-    Start of next month:<br>
-    <%= end_date %>
-  </p>
-  <p>
-    <%  @owners.each do |owner| %>
-      <p>
-        <%= owner.name %><br>
-        <%= owner.heads %>
-      </p>
-    <% end %>
-  </p>
-</div>
+
+<p>
+  Current time:<br>
+  <%= DateTime.now %>
+</p>
+<p>
+  Start of month:<br>
+  <%
+    start_date = DateTime.parse("2016-08-01")
+    end_date = DateTime.parse("2016-10-01")
+  %>
+  <%= start_date %>
+</p>
+<p>
+  Start of next month:<br>
+  <%= end_date %>
+</p>
+<p>
+  <%  @owners.each do |owner| %>
+    <p>
+      <%= owner.name %><br>
+      <%= owner.heads %>
+    </p>
+  <% end %>
+</p>

@@ -6,8 +6,8 @@ class UpdateController < ApplicationController
   def goals
     databaser = Databaser.new
 
-    databaser.update_goals_this_month
-    databaser.update_owner_goals
+    databaser.update_club_goals_this_month
+    databaser.update_owner_goals_this_month
 
     redirect_to root_path
   end
