@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/update/champ' => 'update#champ'
   post '/update/avatar/:id' => 'update#avatar'
   post '/update/avatar_list' => 'update#avatar_list'
+  post '/update/special' => 'update#special'
 
   get '/test' => 'welcome#test'
 

@@ -24,15 +24,31 @@
 
   <div class="eric_console-task-wrapper">
     <h3>
-      Update Fixtures and Goals this Month
+      Update Fixtures (Not Functional)
     </h3>
     <p>
 
     </p>
     <p>
-      This then uses the updated fixtures to update both club and owner goals scored this month, both database fields.
+      * Pending.
     </p>
     <form method="POST" action="/update/goals">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="submit" value="Update">
+    </form>
+  </div>
+
+  <div class="eric_console-task-wrapper">
+    <h3>
+      * SPECIAL UPDATE *
+    </h3>
+    <p>
+
+    </p>
+    <p>
+      This contains special instructions.
+    </p>
+    <form method="POST" action="/update/special">
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <input type="submit" value="Update">
     </form>

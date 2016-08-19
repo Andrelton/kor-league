@@ -42,4 +42,10 @@ class UpdateController < ApplicationController
     TextFileClient.new.update_avatar_list
     redirect_to "/eric_console"
   end
+
+  def special
+
+    redirect_to root_path
+  end
+
 end
