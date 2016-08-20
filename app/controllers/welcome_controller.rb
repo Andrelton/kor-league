@@ -26,8 +26,7 @@ class WelcomeController < ApplicationController
   end
 
   def test
-    # FootballDataClient.new.test
-    @owners = Owner.ranked_by_heads
+    @temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
     render :test
   end
 

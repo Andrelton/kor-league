@@ -49,6 +49,44 @@ class FootballDataClient
     return fixtures_data
   end
 
+  def get_club_fd_id(url_string)
+    url_string.split("/").last
+  end
+
+  def create_temp_fixture(fixture_hash)
+    home_team_url_string = fixture_hash["_links"]["homeTeam"]["href"]
+    away_team_url_string = fixture_hash["_links"]["awayTeam"]["href"]
+
+    return Fixture.new({
+      home_club_id: get_club_fd_id(home_team_url_string),
+      away_club_id: get_club_fd_id(away_team_url_string),
+      home_club_goals: fixture_hash["result"]["goalsHomeTeam"],
+      away_club_goals: fixture_hash["result"]["goalsAwayTeam"]
+    })
+  end
+
+  def get_completed_temp_fixtures
+    completed_temp_fixtures = []
+    COUNTRIES.each do |_, country_number|
+      country_fixtures_data = self.class.get(
+        "/v1/soccerseasons/#{country_number}/fixtures",
+        headers: @headers
+      )
+      country_fixtures_hashes =  country_fixtures_data["fixtures"]
+      completed_temp_fixtures << country_fixtures_hashes
+      # country_fixtures_hashes.each do |fixture_hash|
+      #   status = fixture_hash["status"]
+      #   date = DateTime.parse(fixture_hash["date"])
+
+      #   if status == "FINISHED" && (DateTime.now - date) < 2.weeks
+      #     completed_temp_fixtures << create_temp_fixture(fixture_hash)
+      #   end
+      # end
+    end
+
+    return completed_temp_fixtures
+  end
+
   def test
     fixtures_data = self.class.get(
       "/v1/soccerseasons/426/fixtures",
