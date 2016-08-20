@@ -4,3 +4,7 @@ div.eric_console-task-wrapper {
   display: inline-block;
   vertical-align: top;
 }
+
+div.faded {
+  opacity: 0.3;
+}

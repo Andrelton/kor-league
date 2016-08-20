@@ -26,11 +26,12 @@ class WelcomeController < ApplicationController
   end
 
   def test
-    @temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
+
     render :test
   end
 
   def eric_console
+    @updates = FootballDataClient.new.get_league_updated_times
     @owners = Owner.all
     @avatar_list = TextFileClient.new.read_avatar_list
     render :eric_console

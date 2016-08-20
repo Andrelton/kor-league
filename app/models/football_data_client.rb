@@ -6,10 +6,10 @@ class FootballDataClient
   base_uri "http://api.football-data.org"
 
   COUNTRIES = {
-      england: 426,
-      germany: 430,
-      spain: 436,
-      italy: 438
+      english: 426,
+      german: 430,
+      spanish: 436,
+      italian: 438
     }
 
   def initialize
@@ -72,19 +72,36 @@ class FootballDataClient
         "/v1/soccerseasons/#{country_number}/fixtures",
         headers: @headers
       )
-      country_fixtures_hashes =  country_fixtures_data["fixtures"]
-      completed_temp_fixtures << country_fixtures_hashes
-      # country_fixtures_hashes.each do |fixture_hash|
-      #   status = fixture_hash["status"]
-      #   date = DateTime.parse(fixture_hash["date"])
 
-      #   if status == "FINISHED" && (DateTime.now - date) < 2.weeks
-      #     completed_temp_fixtures << create_temp_fixture(fixture_hash)
-      #   end
-      # end
+      country_fixtures_hashes =  country_fixtures_data["fixtures"]
+      country_fixtures_hashes.each do |fixture_hash|
+
+        status = fixture_hash["status"]
+        date = DateTime.parse(fixture_hash["date"])
+
+        if status == "FINISHED" && (DateTime.now - date) < 2.weeks
+          completed_temp_fixtures << create_temp_fixture(fixture_hash)
+        end
+      end
     end
 
     return completed_temp_fixtures
+  end
+
+  def get_league_updated_times
+    league_updated_times = {}
+    leagues = self.class.get(
+        "/v1/soccerseasons",
+        headers: @headers
+      )
+    leagues.each do |league|
+      if COUNTRIES.values.include?(league["id"])
+        league_name = COUNTRIES.key(league["id"])
+        league_updated_times[league_name] = DateTime.parse(league["lastUpdated"])
+      end
+    end
+
+    return league_updated_times.sort_by { |_, date| date }.reverse
   end
 
   def test

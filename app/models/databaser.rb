@@ -132,7 +132,16 @@ class Databaser
   end
 
   def update_fixtures
-    all_fixtures = FootballDataClient.new.get_all_fixtures
+    temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
+    temp_fixtures.each do |temp_fixture|
+      db_fixture = Fixture.where(home_club_id: temp_fixture.home_club_id).where(away_club_id: temp_fixture.away_club_id)
+
+      db_fixture.completed = true
+      db_fixture.home_club_goals = temp_fixture.home_club_goals
+      db_fixture.away_club_goals = temp_fixture.away_club_goals
+
+      db_fixture.save
+    end
   end
 
   # !!! THIS CALCULATES GOALS FROM FIXTURES, MORE SLOWLY !!!

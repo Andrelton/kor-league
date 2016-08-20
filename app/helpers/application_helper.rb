@@ -15,4 +15,9 @@ module ApplicationHelper
     champ_name = TextFileClient.new.get_champ_name
     @champ ||= Owner.find_by(name: champ_name)
   end
+
+  def pretty_time(date_time)
+
+  end
+
 end
