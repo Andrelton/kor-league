@@ -28,11 +28,13 @@ class Club < ActiveRecord::Base
   end
 
   def get_next_fixture
+    # The next fixture after the time 2 hours ago, to include live matches
     next_fixture = Fixture.where("date > ?", DateTime.now - 2.hours)
       .where("home_club_id = ? or away_club_id = ?", self.fd_id, self.fd_id)
       .order(:date).first
 
-    if (next_fixture.date - DateTime.now) < 2.hours
+    # if the fixture is before now (i.e. already started)...
+    if next_fixture.date < DateTime.now
       next_fixture.live = true
     end
 
