@@ -79,7 +79,9 @@ class FootballDataClient
         status = fixture_hash["status"]
         date = DateTime.parse(fixture_hash["date"])
 
-        if status == "FINISHED" && (DateTime.now - date) < 2.weeks
+        # If only the most recent fixtures are desired:
+        # && (DateTime.now - date) < 2.weeks
+        if status == "FINISHED"
           completed_temp_fixtures << create_temp_fixture(fixture_hash)
         end
       end

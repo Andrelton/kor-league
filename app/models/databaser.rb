@@ -79,7 +79,7 @@ class Databaser
 
 
   # *** UPDATE DATABASE ***
-    def update_clubs
+  def update_clubs
     # Updates from API League Table
     all_teams = FootballDataClient.new.get_all_teams
 
@@ -131,17 +131,56 @@ class Databaser
     end
   end
 
-  def update_fixtures
+  def update_fixtures(also_update_points = false)
     temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
+
+    clubs_and_points = Hash.new(0)
+    clubs_and_goals_scored = Hash.new(0)
+
     temp_fixtures.each do |temp_fixture|
-      db_fixture = Fixture.where(home_club_id: temp_fixture.home_club_id).where(away_club_id: temp_fixture.away_club_id)
+      db_fixture = Fixture.where(home_club_id: temp_fixture.home_club_id).where(away_club_id: temp_fixture.away_club_id).first
 
       db_fixture.completed = true
       db_fixture.home_club_goals = temp_fixture.home_club_goals
       db_fixture.away_club_goals = temp_fixture.away_club_goals
 
+      if also_update_points
+        if db_fixture.winning_club
+          clubs_and_points[db_fixture.winning_club.fd_id] += 3
+        else
+          clubs_and_points[db_fixture.home_club.fd_id] += 1
+          clubs_and_points[db_fixture.away_club.fd_id] += 1
+        end
+
+        clubs_and_goals_scored[db_fixture.home_club.fd_id] += db_fixture.home_club_goals
+        clubs_and_goals_scored[db_fixture.away_club.fd_id] += db_fixture.away_club_goals
+      end
+
       db_fixture.save
     end
+
+    if also_update_points
+      clubs_and_points.each do |fd_id, points|
+        club = Club.find_by(fd_id: fd_id)
+        if points > club.points
+          club.points = points
+          club.save
+        end
+      end
+
+      clubs_and_goals_scored.each do |fd_id, goals|
+        club = Club.find_by(fd_id: fd_id)
+        if goals > club.goals_this_month
+          club.goals_this_month = goals
+          club.save
+        end
+      end
+
+      databaser = Databaser.new
+      databaser.update_owner_ranks
+      databaser.update_owner_goals_this_month
+    end
+
   end
 
   # !!! THIS CALCULATES GOALS FROM FIXTURES, MORE SLOWLY !!!
