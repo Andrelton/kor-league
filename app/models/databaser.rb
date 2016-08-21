@@ -89,11 +89,11 @@ class Databaser
       team_fd_id = get_club_fd_id(team["_links"]["team"]["href"])
       club = Club.find_by(fd_id: team_fd_id)
 
-      club.points = team["points"]
-      club.played = team["played"]
+      club.points = team["points"] if !club.points || team["points"] > club.points
+      club.played = team["played"]  if !club.played || team["playedGames"] > club.played
 
       # REMOVE IF SWITCHING GOAL COUNTING TO
-      club.goals_this_month = team["goals"]
+      club.goals_this_month = team["goals"] if !club.goals_this_month || team["goals"] > club.goals_this_month
 
       club.save
     end

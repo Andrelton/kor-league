@@ -15,6 +15,18 @@ namespace :admin do
     databaser = Databaser.new
 
     databaser.update_fixtures(true)
+    databaser.update_owner_ranks
+    databaser.update_owner_goals_this_month
+  end
+
+  desc "update from API league table AND fixtures"
+  task :update_db => :environment do
+    databaser = Databaser.new
+
+    databaser.update_clubs
+    databaser.update_fixtures(true)
+    databaser.update_owner_ranks
+    databaser.update_owner_goals_this_month
   end
 
 end

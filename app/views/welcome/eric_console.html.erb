@@ -28,6 +28,15 @@
 
   <div class="eric_console-task-wrapper">
     <h3>
+      Fixtures Pending Completion in Database
+    </h3>
+    <% @incomplete_fixtures.each do |fixture| %>
+      <%= fixture.home_club.name %> v. <%= fixture.away_club.name %> (<%= fixture.date.in_time_zone('Pacific Time (US & Canada)').strftime('%a, %b %e %l:%M %p') %>)
+    <% end %>
+  </div>
+
+  <div class="eric_console-task-wrapper">
+    <h3>
       API League Update Times
     </h3>
     <p>

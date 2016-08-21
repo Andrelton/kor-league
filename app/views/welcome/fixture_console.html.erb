@@ -1,0 +1,20 @@
+<div class="fixture-console-outer">
+  <div class="fixture-console-inner">
+    <% @fixtures.each do |fixture| %>
+      <% if fixture.date < DateTime.now && fixture.completed == false %>
+        <div class="fixture pending">
+      <% else %>
+        <div class="fixture">
+      <% end %>
+          <p>
+            <% if fixture.winning_club && fixture.winning_club.owners.any? && fixture.losing_club.owners.any? %>
+              <strong>
+                <%= fixture.winning_club.owners.first.name %>
+              </strong>
+            <% end %>
+            <%= fixture.home_club.name %> (<%= fixture.home_club_goals %>) - (<%= fixture.away_club_goals %>) <%= fixture.away_club.name %>
+          </p>
+        </div>
+    <% end %>
+  </div>
+</div>

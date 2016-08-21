@@ -31,9 +31,15 @@ class WelcomeController < ApplicationController
   end
 
   def eric_console
+    @incomplete_fixtures = Fixture.where(completed: false).where("date < ?", DateTime.now)
     @updates = FootballDataClient.new.get_league_updated_times
     @owners = Owner.all
     @avatar_list = TextFileClient.new.read_avatar_list
     render :eric_console
+  end
+
+  def fixture_console
+    @fixtures = Fixture.order(:date).limit(50)
+    render :fixture_console
   end
 end

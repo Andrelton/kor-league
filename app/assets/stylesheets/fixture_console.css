@@ -1,0 +1,9 @@
+div.fixture-console-inner {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+div.pending {
+  background-color: #FF0;
+}
