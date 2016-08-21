@@ -34,16 +34,16 @@
                   owner.heads.each do |head|
                     losing_club = head.losing_club
               %>
-                <div class="head-listing">
-                  <strong><%= losing_club.owners.first.name %></strong>
-                  | <span class="italic"><%= losing_club.name %> -
-                  <%= head.date.strftime('%a, %b %e')%></span>
+                <div class="head-listing <%= "light-grey" if index.odd? %>">
+                  * <strong><%= losing_club.owners.first.name %></strong> * <%= head.date.strftime('%a, %b %e')%> * <br>
+                  <em><%= head.home_club.name %></em> ( <%= head.home_club_goals %> - <%= head.away_club_goals %> ) <em><%= head.away_club.name %></em>
+
                 </div>
               <%
                   end
                 else
               %>
-                <div class="head-listing">
+                <div class="head-listing <%= "light-grey" if index.odd? %>">
                   No heads yet.
                 </div>
               <% end %>
