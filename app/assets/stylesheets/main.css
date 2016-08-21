@@ -212,6 +212,13 @@ a:hover {
   color: #2952A3;
 }
 
+a.scores-link {
+  color: #FFF;
+  background-color: #0F0;
+  padding: 0.2em;
+  border-radius: 3px;
+}
+
 span.grey {
   color: #808080;
 }

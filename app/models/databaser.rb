@@ -176,11 +176,7 @@ class Databaser
         end
       end
 
-      databaser = Databaser.new
-      databaser.update_owner_ranks
-      databaser.update_owner_goals_this_month
     end
-
   end
 
   # !!! THIS CALCULATES GOALS FROM FIXTURES, MORE SLOWLY !!!
