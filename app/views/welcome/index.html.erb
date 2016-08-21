@@ -26,6 +26,16 @@
   <p>
     * All times are appropriate for your location.
   </p>
+  <p>
+    <% if @incomplete_fixtures.any? %>
+      <p>
+        <strong>Updates Pending:</strong>
+      </p>
+    <% end %>
+    <% @incomplete_fixtures.each do |fixture| %>
+      <%= fixture.home_club.name %> v. <%= fixture.away_club.name %> (<%= fixture.date.strftime('%a, %b %e') %>)<br>
+    <% end %>
+  </p>
   <p class="footer">
     ..........
   </p>

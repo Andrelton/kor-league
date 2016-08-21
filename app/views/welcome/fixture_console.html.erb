@@ -12,7 +12,15 @@
                 <%= fixture.winning_club.owners.first.name %>
               </strong>
             <% end %>
-            <%= fixture.home_club.name %> (<%= fixture.home_club_goals %>) - (<%= fixture.away_club_goals %>) <%= fixture.away_club.name %>
+            <%= fixture.home_club.name %>
+            <% if fixture.completed %>
+              (<%= fixture.home_club_goals %>) - (<%= fixture.away_club_goals %>)
+            <% else %>
+              -
+            <% end %>
+            <%= fixture.away_club.name %> - <%= fixture.date.strftime('%a, %b %e') %>
+        <!-- Epoch time in milliseconds-->
+        <span class="next-fixture-date"><%= fixture.date.to_i * 1000 %></span>
           </p>
         </div>
     <% end %>

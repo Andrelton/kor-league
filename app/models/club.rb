@@ -38,7 +38,6 @@ class Club < ActiveRecord::Base
       next_fixture.live = true
     end
 
-    opponent = nil
     if next_fixture.home_club_id == self.fd_id
       next_fixture.opponent = Club.find_by(fd_id: next_fixture.away_club_id)
     else
