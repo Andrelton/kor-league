@@ -35,6 +35,15 @@
 # man_city.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
 # man_city.save
 
-Fixture.delete_all
-Databaser.new.seed_fixtures
+# Fixture.delete_all
+# Databaser.new.seed_fixtures
+
+club_1 = Club.find_by(fd_id: 2)
+club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/8/8b/TSG_1899_Hoffenheim_logo.svg"
+club_1.save
+
+club_2 = Club.find_by(fd_id: 6)
+club_2.crest_url = "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg"
+club_2.save
+
 
