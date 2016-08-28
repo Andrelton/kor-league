@@ -131,7 +131,7 @@ class Databaser
     end
   end
 
-  def update_fixtures(also_update_points = false)
+  def update_completed_fixtures(also_update_points = false)
     temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
 
     clubs_and_points = Hash.new(0)

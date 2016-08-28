@@ -14,7 +14,7 @@ namespace :admin do
   task :update_from_fixtures => :environment do
     databaser = Databaser.new
 
-    databaser.update_fixtures(true)
+    databaser.update_completed_fixtures(true)
     databaser.update_owner_ranks
     databaser.update_owner_goals_this_month
   end
@@ -24,9 +24,14 @@ namespace :admin do
     databaser = Databaser.new
 
     databaser.update_clubs
-    databaser.update_fixtures(true)
+    databaser.update_completed_fixtures(true)
     databaser.update_owner_ranks
     databaser.update_owner_goals_this_month
+  end
+
+  desc "update Title Holder"
+  task :update_champ => :environment do
+    puts "#{ARGV[1]} loves Cheetos."
   end
 
 end

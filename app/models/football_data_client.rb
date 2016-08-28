@@ -36,17 +36,17 @@ class FootballDataClient
   end
 
   def get_all_fixtures
-    fixtures_data = []
+    country_fixtures_hashes = []
 
     COUNTRIES.each do |_, country_number|
      country_fixtures = self.class.get(
       "/v1/soccerseasons/#{country_number}/fixtures",
       headers: @headers
       )
-     fixtures_data += country_fixtures["fixtures"]
+     country_fixtures_hashes += country_fixtures["fixtures"]
     end
 
-    return fixtures_data
+    return country_fixtures_hashes
   end
 
   def get_club_fd_id(url_string)
@@ -66,28 +66,26 @@ class FootballDataClient
   end
 
   def get_completed_temp_fixtures
+    country_fixtures_hashes =  self.get_all_fixtures
+
     completed_temp_fixtures = []
-    COUNTRIES.each do |_, country_number|
-      country_fixtures_data = self.class.get(
-        "/v1/soccerseasons/#{country_number}/fixtures",
-        headers: @headers
-      )
+    country_fixtures_hashes.each do |fixture_hash|
 
-      country_fixtures_hashes =  country_fixtures_data["fixtures"]
-      country_fixtures_hashes.each do |fixture_hash|
+      status = fixture_hash["status"]
 
-        status = fixture_hash["status"]
-        date = DateTime.parse(fixture_hash["date"])
-
-        # If only the most recent fixtures are desired:
-        # && (DateTime.now - date) < 2.weeks
-        if status == "FINISHED"
-          completed_temp_fixtures << create_temp_fixture(fixture_hash)
-        end
+      # If only the most recent fixtures are desired:
+      # date = DateTime.parse(fixture_hash["date"])
+      # && (DateTime.now - date) < 2.weeks
+      if status == "FINISHED"
+        completed_temp_fixtures << create_temp_fixture(fixture_hash)
       end
     end
 
     return completed_temp_fixtures
+  end
+
+  def get_timed_temp_fixtures
+
   end
 
   def get_league_updated_times
