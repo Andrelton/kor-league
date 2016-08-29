@@ -36,17 +36,17 @@ class FootballDataClient
   end
 
   def get_all_fixtures
-    country_fixtures_hashes = []
+    fixture_hashes = []
 
     COUNTRIES.each do |_, country_number|
      country_fixtures = self.class.get(
       "/v1/soccerseasons/#{country_number}/fixtures",
       headers: @headers
       )
-     country_fixtures_hashes += country_fixtures["fixtures"]
+     fixture_hashes += country_fixtures["fixtures"]
     end
 
-    return country_fixtures_hashes
+    return fixture_hashes
   end
 
   def get_club_fd_id(url_string)
@@ -61,31 +61,38 @@ class FootballDataClient
       home_club_id: get_club_fd_id(home_team_url_string),
       away_club_id: get_club_fd_id(away_team_url_string),
       home_club_goals: fixture_hash["result"]["goalsHomeTeam"],
-      away_club_goals: fixture_hash["result"]["goalsAwayTeam"]
+      away_club_goals: fixture_hash["result"]["goalsAwayTeam"],
+      date: fixture_hash["date"]
     })
   end
 
-  def get_completed_temp_fixtures
-    country_fixtures_hashes =  self.get_all_fixtures
-
+  def get_fixture_updates
     completed_temp_fixtures = []
-    country_fixtures_hashes.each do |fixture_hash|
+    timed_temp_fixtures = []
+
+    fixture_hashes =  self.get_all_fixtures
+    fixture_hashes.each do |fixture_hash|
 
       status = fixture_hash["status"]
 
       # If only the most recent fixtures are desired:
-      # date = DateTime.parse(fixture_hash["date"])
-      # && (DateTime.now - date) < 2.weeks
+      # fixture_date = DateTime.parse(fixture_hash["date"])
+      # && fixture_date > (DateTime.now - 2.weeks)
       if status == "FINISHED"
         completed_temp_fixtures << create_temp_fixture(fixture_hash)
       end
+      if status == "TIMED" || status == "SCHEDULED"
+        fixture_date = DateTime.parse(fixture_hash["date"])
+        if fixture_date < (DateTime.now + 1.month)
+          timed_temp_fixtures << create_temp_fixture(fixture_hash)
+        end
+      end
     end
 
-    return completed_temp_fixtures
-  end
-
-  def get_timed_temp_fixtures
-
+    return {
+      completed: completed_temp_fixtures,
+      timed: timed_temp_fixtures
+    }
   end
 
   def get_league_updated_times

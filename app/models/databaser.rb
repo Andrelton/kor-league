@@ -92,7 +92,7 @@ class Databaser
       club.points = team["points"] if !club.points || team["points"] > club.points
       club.played = team["played"]  if !club.played || team["playedGames"] > club.played
 
-      # REMOVE IF SWITCHING GOAL COUNTING TO
+      # REMOVE IF SWITCHING GOAL COUNTING TO FIXTURES
       club.goals_this_month = team["goals"] if !club.goals_this_month || team["goals"] > club.goals_this_month
 
       club.save
@@ -131,14 +131,16 @@ class Databaser
     end
   end
 
-  def update_completed_fixtures(also_update_points = false)
-    temp_fixtures = FootballDataClient.new.get_completed_temp_fixtures
+  def get_corresponding_db_fixture(temp_fixture)
+    return Fixture.where(home_club_id: temp_fixture.home_club_id).where(away_club_id: temp_fixture.away_club_id).first
+  end
 
+  def update_completed_fixtures(temp_fixtures, also_update_points = false)
     clubs_and_points = Hash.new(0)
     clubs_and_goals_scored = Hash.new(0)
 
     temp_fixtures.each do |temp_fixture|
-      db_fixture = Fixture.where(home_club_id: temp_fixture.home_club_id).where(away_club_id: temp_fixture.away_club_id).first
+      db_fixture = self.get_corresponding_db_fixture(temp_fixture)
 
       db_fixture.completed = true
       db_fixture.home_club_goals = temp_fixture.home_club_goals
@@ -177,6 +179,28 @@ class Databaser
       end
 
     end
+  end
+
+  def update_timed_fixtures(temp_fixtures)
+    updates_count = 0
+
+    temp_fixtures.each do |temp_fixture|
+      db_fixture = self.get_corresponding_db_fixture(temp_fixture)
+      if db_fixture.date != temp_fixture.date
+        db_fixture.date = temp_fixture.date
+        db_fixture.save
+        updates_count += 1
+      end
+    end
+
+    return updates_count
+  end
+
+  def update_fixtures(options = {})
+    temp_fixtures = FootballDataClient.new.get_fixture_updates
+
+    self.update_completed_fixtures(temp_fixtures[:completed], options[:also_update_points])
+    self.update_timed_fixtures(temp_fixtures[:timed])
   end
 
   # !!! THIS CALCULATES GOALS FROM FIXTURES, MORE SLOWLY !!!

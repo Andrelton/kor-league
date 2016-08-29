@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @owners = Owner.order(:rank, :name)
-    @incomplete_fixtures = Fixture.where(completed: false).where("date < ?", DateTime.now - 2.hours)
+    @incomplete_fixtures = Fixture.where(completed: false).where("date < ?", DateTime.now - 105.minutes)
     render :index
   end
 
