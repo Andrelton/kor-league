@@ -38,8 +38,8 @@
 # Fixture.delete_all
 # Databaser.new.seed_fixtures
 
-club_1 = Club.find_by(fd_id: 100)
-club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/5/52/AS_Roma_logo_%282013%29.svg"
+club_1 = Club.find_by(fd_id: 110)
+club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg"
 club_1.save
 
 # club_2 = Club.find_by(fd_id: 6)
