@@ -19,7 +19,7 @@ At the start of the season, a 'title holder' is chosen by the league. This playe
 The features listed above are all live on the site, being used by a small group of real users. Once error-handling, testing, and scalability have reached stable levels, the competition can be expanded with trivial effort to allow for more leagues.
 # Technologies
 ### Server-Side Framework and Database
-*Four Club Euro Fantasy* is built on Ruby on Rails, using a PostgreSQL database and WEBrick server.
+*Four Club Euro Fantasy* is built on Ruby on Rails, using a PostgreSQL database.
 ### API
 This project relies heavily on the [football-data.org](http://api.football-data.org/index) API for live scoring updates. The API is free to use, and has turned what could have been an expensive or scraper-instensive task into a pleasure.
 ### Libraries
@@ -38,9 +38,11 @@ All data is updated automatically by a Rake task that updates the database based
 ### Fixtures Page Features
 
 Upcomming matches between clubs owned by players in the league are listed here. A match for the lineal title (as described above) is highlighted in black, while a *possible* such match is listed in bold.
+
 ![Fixtures page screenshot](app/assets/images/screenshot_2.png)
 
 ### Side Bets Page Features
 
 Here players are ranked by number of 'heads' (as described above) and goals in the current month. By clicking a player's name in the 'Heads' section, their name listing can by expanded to show when their 'heads' were won.
+
 ![Side Bets page screenshot](app/assets/images/screenshot_3.png)
