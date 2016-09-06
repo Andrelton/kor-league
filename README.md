@@ -1,4 +1,4 @@
-# Four Club Euro Fantasy
+# Project Outline
 *Four Club Euro Fantasy* is a fantasy gaming site that allows groups of friends to compete while expanding their knowledge of European soccer leagues. Check out the game [here](http://www.kor-league.herokuapp.com).
 
 ![Screenshot](app/assets/images/screenshot_main.png)
@@ -23,9 +23,9 @@ The features listed above are all live on the site, being used by a small group 
 This project relies heavily on the [football-data.org](http://api.football-data.org/index) API for live scoring updates. The API is free to use, and has turned what could have been an expensive or scraper-instensive task into a pleasure.
 ### Libraries
 - Ruby Gems
+
 See the [full list](https://github.com/Andrelton/kor-league/blob/master/Gemfile).
+
 # Further Screenshots
 ![Main page](app/assets/images/screenshot_1.png)
 ![Fixtures page](app/assets/images/screenshot_2.png)
-![Side-bets page](app/assets/images/screenshot_3.png)
-
