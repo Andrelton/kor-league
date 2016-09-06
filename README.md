@@ -1,8 +1,9 @@
-[![Logo](app/assets/images/logo.png)](http://www.kor-league.herokuapp.com)
-Check out the game [here](http://www.kor-league.herokuapp.com).
+# Four Club Euro Fantasy
+*Four Club Euro Fantasy* is a fantasy gaming site that allows groups of friends to compete while expanding their knowledge of European soccer leagues. Check out the game [here](http://www.kor-league.herokuapp.com).
+
 ![Screenshot](app/assets/images/screenshot_main.png)
-# Competition Details
-*Four Club Euro Fantasy* is a fantasy gaming site that allows groups of friends to compete while expanding their knowledge of European soccer leagues.
+
+
 ### Main Format
 Each player selects one club from the first-division league in each of England, German, Spain, and Italy. Over the course of the season (August through May), points are accumulated in the standard international manner (3 points for a win, 1 point for a draw/tie, and 0 points for a loss). At the end of the season, the player with the most points between their four clubs is declared the winner.
 ### Side Games
