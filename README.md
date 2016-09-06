@@ -27,15 +27,20 @@ This project relies heavily on the [football-data.org](http://api.football-data.
 
 See the [full list](https://github.com/Andrelton/kor-league/blob/master/Gemfile).
 
+*Note: No styling or Javascript-templating libraries (e.g. Bootstrap or Angular) were used in the design or implementation of this project.*
+
 # Further Screenshots
 ### Main Page Features
 All data is updated automatically by a Rake task that updates the database based on information retrieved from the football-data.org API. For each owner, clubs are listed in order according to the time of their next match. Times listed are approprate for the user's location (sent by the server but updated client-side with Javascript), and matches against other players in the league are noted. Points, goals, and 'heads' (as described above) totals are noted here. Further information on these formats can be found on the player's page and the 'Side Bets' page.
+
 ![Main page screenshot](app/assets/images/screenshot_1.png)
 
 ### Fixtures Page Features
+
 Upcomming matches between clubs owned by players in the league are listed here. A match for the lineal title (as described above) is highlighted in black, while a *possible* such match is listed in bold.
 ![Fixtures page screenshot](app/assets/images/screenshot_2.png)
 
 ### Side Bets Page Features
+
 Here players are ranked by number of 'heads' (as described above) and goals in the current month. By clicking a player's name in the 'Heads' section, their name listing can by expanded to show when their 'heads' were won.
 ![Side Bets page screenshot](app/assets/images/screenshot_3.png)
