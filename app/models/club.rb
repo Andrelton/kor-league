@@ -24,7 +24,7 @@ class Club < ActiveRecord::Base
   end
 
   def get_fixtures(number = 1)
-
+    # for future use
   end
 
   def get_next_fixture
