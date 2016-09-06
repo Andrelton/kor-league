@@ -1,4 +1,4 @@
-[![Logo](assets/images/logo.png)](http://www.kor-league.herokuapp.com)
+[![Logo](app/assets/images/logo.png)](http://www.kor-league.herokuapp.com)
 Check out the game [here](http://www.kor-league.herokuapp.com).
 ![Screenshot](app/assets/images/screenshot_main.png)
 # Competition Details
