@@ -1,7 +1,7 @@
 # Project Outline
 *Four Club Euro Fantasy* is a fantasy gaming site that allows groups of friends to compete while expanding their knowledge of European soccer leagues. Check out the game [here](http://www.kor-league.herokuapp.com).
 
-# Player Page Screenshot
+# Screenshot
 ![Player page screenshot](app/assets/images/screenshot_main.png)
 
 # Game Structure
