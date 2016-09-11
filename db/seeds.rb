@@ -38,12 +38,29 @@
 # Fixture.delete_all
 # Databaser.new.seed_fixtures
 
-club_1 = Club.find_by(fd_id: 110)
-club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg"
-club_1.save
+# club_1 = Club.find_by(fd_id: 110)
+# club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg"
+# club_1.save
 
 # club_2 = Club.find_by(fd_id: 6)
 # club_2.crest_url = "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg"
 # club_2.save
+
+fixture1 = Fixture.where(home_club_id: 94).where(away_club_id: 559).first
+fixture1.completed = true
+fixture1.home_club_goals = 0
+fixture1.away_club_goals = 0
+fixture1.save
+
+fixture2 = Fixture.where(home_club_id: 471).where(away_club_id: 585).first
+fixture2.home_club_goals = 0
+fixture2.away_club_goals = 3
+fixture2.save
+
+club = Club.where(fd_id: 471).first
+club.points = 3
+club.goals_this_month = 2
+club.save
+
 
 
