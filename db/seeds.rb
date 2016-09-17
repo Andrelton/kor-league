@@ -46,21 +46,20 @@
 # club_2.crest_url = "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg"
 # club_2.save
 
-fixture1 = Fixture.where(home_club_id: 94).where(away_club_id: 559).first
-fixture1.completed = true
-fixture1.home_club_goals = 0
-fixture1.away_club_goals = 0
+fixture1 = Fixture.where(home_club_id: 107).where(away_club_id: 99).first
+fixture1.date = DateTime.now + 4.months
 fixture1.save
 
-fixture2 = Fixture.where(home_club_id: 471).where(away_club_id: 585).first
-fixture2.home_club_goals = 0
-fixture2.away_club_goals = 3
-fixture2.save
 
-club = Club.where(fd_id: 471).first
-club.points = 3
-club.goals_this_month = 2
-club.save
+# fixture2 = Fixture.where(home_club_id: 471).where(away_club_id: 585).first
+# fixture2.home_club_goals = 0
+# fixture2.away_club_goals = 3
+# fixture2.save
+
+# club = Club.where(fd_id: 471).first
+# club.points = 3
+# club.goals_this_month = 2
+# club.save
 
 
 
