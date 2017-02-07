@@ -38,17 +38,29 @@
 # Fixture.delete_all
 # Databaser.new.seed_fixtures
 
-# club_1 = Club.find_by(fd_id: 110)
-# club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg"
-# club_1.save
+club_1 = Club.find_by(fd_id: 721)
+club_1.crest_url = "https://upload.wikimedia.org/wikipedia/en/0/04/RB_Leipzig_2014_logo.svg"
+club_1.save
 
-# club_2 = Club.find_by(fd_id: 6)
-# club_2.crest_url = "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg"
-# club_2.save
+club_2 = Club.find_by(fd_id: 9)
+club_2.crest_url = "https://upload.wikimedia.org/wikipedia/commons/8/81/Hertha_BSC_Logo_2012.svg"
+club_2.save
 
-fixture1 = Fixture.where(home_club_id: 107).where(away_club_id: 99).first
-fixture1.date = DateTime.now + 4.months
-fixture1.save
+club_3 = Club.find_by(fd_id: 3)
+club_3.crest_url = "https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg"
+club_3.save
+
+club_4 = Club.find_by(fd_id: 15)
+club_4.crest_url = "https://upload.wikimedia.org/wikipedia/en/7/75/FSV_Mainz_05.svg"
+club_4.save
+
+club_5 = Club.find_by(fd_id: 2)
+club_5.crest_url = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Logo_TSG_Hoffenheim.svg"
+club_5.save
+
+# fixture1 = Fixture.where(home_club_id: 107).where(away_club_id: 99).first
+# fixture1.date = DateTime.now + 4.months
+# fixture1.save
 
 
 # fixture2 = Fixture.where(home_club_id: 471).where(away_club_id: 585).first
